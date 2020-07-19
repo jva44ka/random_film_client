@@ -18,8 +18,12 @@ export class LikeHttpService extends  BaseHttpService{
   }
 
   getSelfLikeByFilmId(id: Guid): Observable<Like> {
-    return this.getResource<Like>(`this.nameOfController/ByFilm/${id}`);
+    return this.getResource<Like>(`${this.nameOfController}/ByFilm/${id}`);
   }
+
+  /*getLikeByFilmId(userId: string, filmId: Guid): Observable<Like> {
+    return this.getResource<Like>(`${this.nameOfController}/ByFilm/${id}`);
+  }*/
 
   postSelfLike(like: Like): Observable<Like> {
     return this.postResource<Like>(`${this.nameOfController}`, like);

@@ -3,22 +3,20 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { MainPageComponent } from './components/main-page/main-page.component';
-import { FilmsPageComponent } from './components/films-page/films-page.component';
-import { FilmPageComponent } from './components/film-page/film-page.component';
-import { LoginPageComponent } from './components/login-page/login-page.component';
+import {MainPageModule} from './components/main-page/main-page.module';
+import {FilmsPageModule} from './components/films-page/films-page.module';
+import {FilmPageModule} from './components/film-page/film-page.module';
+import {LoginPageModule} from './components/login-page/login-page.module';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    MainPageComponent,
-    FilmsPageComponent,
-    FilmPageComponent,
-    LoginPageComponent
-  ],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    MainPageModule,
+    FilmsPageModule,
+    FilmPageModule,
+    LoginPageModule
   ],
   providers: [],
   bootstrap: [AppComponent]
