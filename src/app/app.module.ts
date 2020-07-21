@@ -7,6 +7,9 @@ import {MainPageModule} from './components/main-page/main-page.module';
 import {FilmsPageModule} from './components/films-page/films-page.module';
 import {FilmPageModule} from './components/film-page/film-page.module';
 import {LoginPageModule} from './components/login-page/login-page.module';
+import {HeaderModule} from './components/header/header.module';
+import {FooterModule} from './components/footer/footer.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [AppComponent],
@@ -16,9 +19,11 @@ import {LoginPageModule} from './components/login-page/login-page.module';
     MainPageModule,
     FilmsPageModule,
     FilmPageModule,
-    LoginPageModule
+    LoginPageModule,
+    HeaderModule,
+    FooterModule,
+    BrowserAnimationsModule
   ],
-  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
