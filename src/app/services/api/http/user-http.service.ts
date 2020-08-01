@@ -9,9 +9,9 @@ import {LoginResult} from '../../../models/result-models/login-result';
 @Injectable({
   providedIn: 'root'
 })
-export class AuthHttpService extends  BaseHttpService {
+export class UserHttpService extends  BaseHttpService {
 
-  private nameOfController: string = 'auth';
+  private nameOfController: string = 'accounts';
 
   constructor(private httpClient: HttpClient,
               protected configuration: ConfigurationService) {

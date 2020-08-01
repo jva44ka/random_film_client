@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import {BaseHttpService} from './base-http.service';
 import {ConfigurationService} from '../../configuration.service';
 import {HttpClient} from '@angular/common/http';
-import {Film} from '../../../models/film';
+import Film from '../../../models/film';
 import {Observable} from 'rxjs';
 import {Guid} from 'guid-typescript';
 

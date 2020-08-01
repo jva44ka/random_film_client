@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { AuthHttpService } from './auth-http.service';
+import { UserFilmHttpService } from './user-film-http.service';
 
 describe('AuthHttpService', () => {
-  let service: AuthHttpService;
+  let service: UserFilmHttpService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(AuthHttpService);
+    service = TestBed.inject(UserFilmHttpService);
   });
 
   it('should be created', () => {

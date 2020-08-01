@@ -5,6 +5,8 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
 import {MatMenuModule} from '@angular/material/menu';
+import {RouterModule} from '@angular/router';
+import {MatTabsModule} from '@angular/material/tabs';
 
 
 
@@ -14,7 +16,9 @@ import {MatMenuModule} from '@angular/material/menu';
     MatToolbarModule,
     MatIconModule,
     MatButtonModule,
-    MatMenuModule
+    MatMenuModule,
+    MatTabsModule,
+    RouterModule
   ],
   declarations: [HeaderComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],

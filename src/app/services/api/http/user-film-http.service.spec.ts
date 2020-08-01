@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { LikeHttpService } from './like-http.service';
+import {UserFilmHttpService} from './user-film-http.service';
 
 describe('LikeHttpService', () => {
-  let service: LikeHttpService;
+  let service: UserFilmHttpService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(LikeHttpService);
+    service = TestBed.inject(UserFilmHttpService);
   });
 
   it('should be created', () => {
