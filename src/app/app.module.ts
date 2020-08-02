@@ -12,6 +12,7 @@ import {FooterModule} from './components/footer/footer.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {HttpClientModule} from '@angular/common/http';
 import {SharedModule} from './shared/shared.module';
+import {NotFoundPageModule} from './components/not-found-page/not-found-page.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -22,6 +23,7 @@ import {SharedModule} from './shared/shared.module';
     FilmsPageModule,
     FilmPageModule,
     LoginPageModule,
+    NotFoundPageModule,
     HeaderModule,
     FooterModule,
     BrowserAnimationsModule,

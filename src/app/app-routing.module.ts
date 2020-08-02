@@ -3,6 +3,8 @@ import { Routes, RouterModule } from '@angular/router';
 import {MainPageComponent} from './components/main-page/main-page.component';
 import {LoginPageComponent} from './components/login-page/login-page.component';
 import {FilmsPageComponent} from './components/films-page/films-page.component';
+import {FilmPageComponent} from './components/film-page/film-page.component';
+import {NotFoundPageComponent} from './components/not-found-page/not-found-page.component';
 
 
 const routes: Routes = [
@@ -20,7 +22,11 @@ const routes: Routes = [
   },
   {
     path: 'film/:id',
-    component: FilmsPageComponent,
+    component: FilmPageComponent,
+  },
+  {
+    path: '**',
+    component: NotFoundPageComponent,
   }
 ];
 

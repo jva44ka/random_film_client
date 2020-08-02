@@ -5,7 +5,7 @@ import {YearPipe} from '../pipes/year-pipe.pipe';
 @NgModule({
   declarations: [YearPipe],
   imports: [
-    CommonModule
+    CommonModule,
   ],
   exports: [YearPipe]
 })
