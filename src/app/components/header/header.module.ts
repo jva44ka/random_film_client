@@ -7,6 +7,7 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatMenuModule} from '@angular/material/menu';
 import {RouterModule} from '@angular/router';
 import {MatTabsModule} from '@angular/material/tabs';
+import {SharedModule} from '../../shared/shared.module';
 
 
 
@@ -18,7 +19,8 @@ import {MatTabsModule} from '@angular/material/tabs';
     MatButtonModule,
     MatMenuModule,
     MatTabsModule,
-    RouterModule
+    RouterModule,
+    SharedModule
   ],
   declarations: [HeaderComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],

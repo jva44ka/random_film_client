@@ -10,14 +10,11 @@ export class ConfigurationService {
   private port: string;
   private basePath = 'localhost';
   public serverUrl: string;
-  public webApiUerl: string;
+  public webApiUrl: string;
 
   //url flags
   private areFromVS: boolean = true; // бэк приложение запускается из вижлы или из консоли dotnet run
   private isSslOn: boolean = false;
-
-  serverUrl: string;
-  webApiUrl: string;
 
   readonly maxAccessFailedCount: number = 5;
   readonly defaultToastDelay: number = 3 * 1000;

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import Film from '../../models/film';
+import {FilmHttpService} from '../../services/api/http/film-http.service';
 
 @Component({
   selector: 'films-page',
@@ -7,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FilmsPageComponent implements OnInit {
 
-  constructor() { }
+  films: Film[];
+
+  constructor(private filmHttpService: FilmHttpService) { }
 
   ngOnInit(): void {
+    this.filmHttpService.getAllFilms().subscribe(films => {
+      this.films = films;
+    });
   }
 
 }

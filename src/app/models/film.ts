@@ -9,6 +9,8 @@ export default class Film {
   public year: Date;
   public director?: string;
   public urlTrailer?: string;
+  public preview?: string;
+  public genresText?: string;
 
   public genres?: Genre[];
 }

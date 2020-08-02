@@ -13,8 +13,8 @@ export class UserHttpService extends  BaseHttpService {
 
   private nameOfController: string = 'accounts';
 
-  constructor(private httpClient: HttpClient,
-              protected configuration: ConfigurationService) {
+  constructor(httpClient: HttpClient,
+              configuration: ConfigurationService) {
     super(httpClient, configuration);
   }
 

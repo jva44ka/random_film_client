@@ -12,8 +12,8 @@ import UserFilm from '../../../models/user-film';
 export class UserFilmHttpService extends  BaseHttpService{
   private nameOfController: string = 'likes';
 
-  constructor(private httpClient: HttpClient,
-              protected configuration: ConfigurationService) {
+  constructor(httpClient: HttpClient,
+              configuration: ConfigurationService) {
     super(httpClient, configuration);
   }
 

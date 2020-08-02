@@ -8,7 +8,7 @@ import {Observable} from 'rxjs';
 })
 export abstract class BaseHttpService {
   constructor(
-    private httpClient: HttpClient,
+    protected httpClient: HttpClient,
     protected configuration: ConfigurationService
   ) {}
 
