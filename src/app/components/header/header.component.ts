@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {AuthService} from '../../services/auth.service';
+import {Subscription} from 'rxjs';
 
 @Component({
   selector: 'app-header',
@@ -7,6 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  ngOnInit(): void {}
+  loggedIn: boolean;
+  loginResultSub: Subscription;
+
+  constructor(public authService: AuthService){}
+
+  ngOnInit(): void {
+    this.loginResultSub = this.authService.loginEvent$.subscribe(res => {
+      this.loggedIn = res.succeeded;
+    });
+  }
 
 }

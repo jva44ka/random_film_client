@@ -1,1 +1,24 @@
-<p>login-page works!</p>
+<div id="login-form-wrapper">
+  <form id="login-form" (click)="onSubmit()">
+    <mat-form-field>
+      <mat-label>Email / Имя пользователя</mat-label>
+      <input matInput
+             placeholder="Email or Username"
+             [(ngModel)]="usernameOrEmail"
+             name="usernameOrEmail">
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Пароль</mat-label>
+      <input matInput
+             placeholder="Password"
+             [(ngModel)]="password"
+             name="password">
+    </mat-form-field>
+    <button
+      mat-raised-button
+      color="primary"
+      type="submit">
+      ВХОД
+    </button>
+  </form>
+</div>

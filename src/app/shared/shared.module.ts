@@ -7,6 +7,8 @@ import {YearPipe} from '../pipes/year-pipe.pipe';
   imports: [
     CommonModule,
   ],
-  exports: [YearPipe]
+  exports: [
+    YearPipe
+  ]
 })
 export class SharedModule { }

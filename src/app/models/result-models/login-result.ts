@@ -3,4 +3,5 @@ export class LoginResult {
   accessToken: string;
   userName: string;
   userId: string;
+  errorMessage: string;
 }

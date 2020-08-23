@@ -2,19 +2,32 @@
     <a mat-button [routerLink]="['']">Random Film</a>
     <a mat-button [routerLink]="['/films']">Фильмы</a>
     <span id="header-spacer"></span>
-    <button mat-icon-button class="example-icon" [matMenuTriggerFor]="menu">
+    <button mat-icon-button class="example-icon" [matMenuTriggerFor]="loggedIn ? loggedInMenu : menu">
       <mat-icon>menu</mat-icon>
     </button>
 </mat-toolbar>
 
 <mat-menu #menu>
-  <button mat-menu-item>
-    <mat-icon>dialpad</mat-icon>
-    <span>Redial</span>
-  </button>
+  <a mat-menu-item [routerLink]="['/login']">
+    <mat-icon>login</mat-icon>
+    <span>Вход</span>
+  </a>
   <button mat-menu-item disabled>
     <mat-icon>voicemail</mat-icon>
     <span>Check voice mail</span>
+  </button>
+  <button mat-menu-item>
+    <mat-icon>notifications_off</mat-icon>
+    <span>Disable alerts</span>
+  </button>
+</mat-menu>
+
+<mat-menu #loggedInMenu>
+  <button mat-menu-item>
+    <mat-icon>account_circle</mat-icon>
+    <a [routerLink]="['#']">
+      {{authService.getUserName()}}
+    </a>
   </button>
   <button mat-menu-item>
     <mat-icon>notifications_off</mat-icon>

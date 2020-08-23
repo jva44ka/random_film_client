@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import {Subject, Subscription} from 'rxjs';
 import {LoginResult} from '../models/result-models/login-result';
-import {AuthHttpService} from './api/http/auth-http.service';
 import {LoginRequest} from '../models/request-models/login-request';
+import {UserHttpService} from './api/http/user-http.service';
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +14,7 @@ export class AuthService {
 
   public loginEvent$: Subject<LoginResult> = new Subject<LoginResult>();
 
-  constructor(private authHttpService: AuthHttpService) {
+  constructor(private userHttpService: UserHttpService) {
   }
 
   getAccessToken(): string{
@@ -33,7 +33,7 @@ export class AuthService {
     login: string,
     password: string
   ): Subscription {
-    return this.authHttpService.loginRequest(new LoginRequest(login, password)).subscribe(
+    return this.userHttpService.loginRequest(new LoginRequest(login, password)).subscribe(
       (resp: LoginResult) => {
         if (resp.succeeded) {
           localStorage.setItem(this.nameOfAccessToken, resp.accessToken);
@@ -46,5 +46,12 @@ export class AuthService {
         this.loginEvent$.next();
       }
     );
+  }
+
+  logout(): void {
+    localStorage.removeItem(this.nameOfAccessToken);
+    localStorage.removeItem(this.nameOfUserName);
+    localStorage.removeItem(this.nameOfUserId);
+    this.loginEvent$.next();
   }
 }
