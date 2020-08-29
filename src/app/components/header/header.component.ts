@@ -16,7 +16,8 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit(): void {
     this.loginResultSub = this.authService.loginEvent$.subscribe(res => {
-      this.loggedIn = res.succeeded;
+      console.log('LoginEvent callback: ' + JSON.stringify(res));
+      this.loggedIn = res?.succeeded;
     });
   }
 

@@ -34,6 +34,6 @@ export class LoginPageComponent implements OnInit {
   }
 
   onSubmit(): void {
-
+    this.authService.login(this.usernameOrEmail, this.password);
   }
 }

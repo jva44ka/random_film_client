@@ -1,9 +1,13 @@
 app-root{
   display: flex;
   justify-content: space-between;
+  justify-items: stretch;
   align-items: stretch;
   flex-direction: column;
 
-  min-height: 100vh;
-  min-width: 100%;
+  position: fixed;
+  top:0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
 }
