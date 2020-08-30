@@ -12,21 +12,30 @@ export class AuthService {
   private nameOfUserName: string = 'user_name';
   private nameOfUserId: string = 'user_id';
 
+  private accessToken: string;
+  private userName: string;
+  private userId: string;
+
   public loginEvent$: Subject<LoginResult> = new Subject<LoginResult>();
 
-  constructor(private userHttpService: UserHttpService) {
-  }
+  constructor(private userHttpService: UserHttpService) {}
 
   getAccessToken(): string{
-    return localStorage.getItem(this.nameOfAccessToken);
+    if(!this.accessToken)
+      this.accessToken = localStorage.getItem(this.nameOfAccessToken);
+    return this.accessToken;
   }
 
   getUserName(): string{
-    return localStorage.getItem(this.nameOfUserName);
+    if(!this.userName)
+      this.userName = localStorage.getItem(this.nameOfUserName);
+    return this.userName;
   }
 
   getUserId(): string{
-    return localStorage.getItem(this.nameOfUserId);
+    if(!this.userId)
+      this.userId = localStorage.getItem(this.nameOfUserId);
+    return this.userId;
   }
 
   login(

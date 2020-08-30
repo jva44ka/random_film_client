@@ -2,7 +2,8 @@
     <a mat-button [routerLink]="['']">Random Film</a>
     <a mat-button [routerLink]="['/films']">Фильмы</a>
     <span id="header-spacer"></span>
-    <button mat-icon-button class="example-icon" [matMenuTriggerFor]="loggedIn ? loggedInMenu : menu">
+    <button mat-icon-button class="example-icon" [matMenuTriggerFor]="loggedIn ? loggedInMenu : menu"
+    >
       <mat-icon>menu</mat-icon>
     </button>
 </mat-toolbar>
@@ -26,9 +27,5 @@
   <button mat-menu-item (click)="logout()">
     <mat-icon>exit_to_app</mat-icon>
     <span>Выход</span>
-  </button>
-  <button mat-menu-item>
-    <mat-icon>notifications_off</mat-icon>
-    <span>Disable alerts</span>
   </button>
 </mat-menu>

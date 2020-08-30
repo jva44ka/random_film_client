@@ -24,10 +24,10 @@ export class LoginPageComponent implements OnInit {
 
   ngOnInit(): void {
     this.loginResultSub = this.authService.loginEvent$.subscribe(loginResult => {
-      if(loginResult.loggedIn)
+      if(loginResult?.loggedIn)
         this.router.navigate(['/']);
       else
-        this.errorMessage = loginResult.errorMessage;
+        this.errorMessage = "Неверный логин и/или пароль";
     });
   }
 
