@@ -1,0 +1,31 @@
+<mat-toolbar>
+    <a mat-button [routerLink]="['']">Random Film</a>
+    <a mat-button [routerLink]="['/films']">Фильмы</a>
+    <span id="header-spacer"></span>
+    <button mat-icon-button class="example-icon" [matMenuTriggerFor]="loggedIn ? loggedInMenu : menu"
+    >
+      <mat-icon>menu</mat-icon>
+    </button>
+</mat-toolbar>
+
+<mat-menu #menu>
+  <a mat-menu-item [routerLink]="['/login']">
+    <mat-icon>login</mat-icon>
+    <span>Вход</span>
+  </a>
+  <a mat-menu-item [routerLink]="['/register']">
+    <mat-icon>add_circle_outline</mat-icon>
+    <span>Создать аккаунт</span>
+  </a>
+</mat-menu>
+
+<mat-menu #loggedInMenu>
+  <a mat-menu-item [routerLink]="['#']">
+    <mat-icon>account_circle</mat-icon>
+    <span>{{authService.getUserName()}}</span>
+  </a>
+  <button mat-menu-item (click)="logout()">
+    <mat-icon>exit_to_app</mat-icon>
+    <span>Выход</span>
+  </button>
+</mat-menu>
