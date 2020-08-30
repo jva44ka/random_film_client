@@ -1,0 +1,11 @@
+<mat-card>
+  <img mat-card-image [src]="film.preview" alt="">
+  <mat-card-header>
+    <mat-card-title>{{film.title}}</mat-card-title>
+    <mat-card-subtitle>{{film.year | yearPipe}}</mat-card-subtitle>
+    <mat-card-subtitle>{{film.genresText}}</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-actions>
+    <button mat-stroked-button [routerLink]="['/film', film.id]">Подробнее</button>
+  </mat-card-actions>
+</mat-card>

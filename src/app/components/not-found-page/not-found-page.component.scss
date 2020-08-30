@@ -1,0 +1,9 @@
+#not-found-label-wrapper{
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  #not-found-label{
+    font-size: 36px;
+    color: red;
+  }
+}
