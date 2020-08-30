@@ -2,6 +2,7 @@ import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 import {Subscription} from 'rxjs';
 import {AuthService} from '../../services/auth.service';
 import {Router} from '@angular/router';
+import {Error} from '../../models/error';
 
 @Component({
   selector: 'login-page',
@@ -15,6 +16,7 @@ export class LoginPageComponent implements OnInit {
   password: string;
 
   errorMessage: string;
+  errors: Error[];
   loginResultSub: Subscription;
 
   constructor(private authService: AuthService,
@@ -22,7 +24,7 @@ export class LoginPageComponent implements OnInit {
 
   ngOnInit(): void {
     this.loginResultSub = this.authService.loginEvent$.subscribe(loginResult => {
-      if(loginResult.succeeded)
+      if(loginResult.loggedIn)
         this.router.navigate(['/']);
       else
         this.errorMessage = loginResult.errorMessage;

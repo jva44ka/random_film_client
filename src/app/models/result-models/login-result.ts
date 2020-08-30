@@ -1,7 +1,10 @@
+import {Error} from '../error';
+
 export class LoginResult {
-  succeeded: boolean;
+  loggedIn: boolean;
   accessToken: string;
   userName: string;
   userId: string;
   errorMessage: string;
+  errors: Error[]
 }

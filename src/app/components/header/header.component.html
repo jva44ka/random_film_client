@@ -12,22 +12,20 @@
     <mat-icon>login</mat-icon>
     <span>Вход</span>
   </a>
-  <button mat-menu-item disabled>
-    <mat-icon>voicemail</mat-icon>
-    <span>Check voice mail</span>
-  </button>
-  <button mat-menu-item>
-    <mat-icon>notifications_off</mat-icon>
-    <span>Disable alerts</span>
-  </button>
+  <a mat-menu-item [routerLink]="['/register']">
+    <mat-icon>add_circle_outline</mat-icon>
+    <span>Создать аккаунт</span>
+  </a>
 </mat-menu>
 
 <mat-menu #loggedInMenu>
-  <button mat-menu-item>
+  <a mat-menu-item [routerLink]="['#']">
     <mat-icon>account_circle</mat-icon>
-    <a [routerLink]="['#']">
-      {{authService.getUserName()}}
-    </a>
+    <span>{{authService.getUserName()}}</span>
+  </a>
+  <button mat-menu-item (click)="logout()">
+    <mat-icon>exit_to_app</mat-icon>
+    <span>Выход</span>
   </button>
   <button mat-menu-item>
     <mat-icon>notifications_off</mat-icon>
