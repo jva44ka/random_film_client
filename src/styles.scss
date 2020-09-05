@@ -1,6 +1,19 @@
 /* You can add global styles to this file, and also import other style files */
 
-$page-width: 50%;
+$page-width: 70%;
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.page-wrapper{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0;
+}
+
+.page-content {
+  width: $page-width;
+  justify-self: center;
+  align-self: center;
+}
