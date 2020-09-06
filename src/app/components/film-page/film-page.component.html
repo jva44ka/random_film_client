@@ -10,6 +10,9 @@
       <mat-card-content>
         <p>{{film.description}}</p>
       </mat-card-content>
+      <mat-card-actions>
+        <film-likes-panel [film]="film"></film-likes-panel>
+      </mat-card-actions>
     </mat-card>
   </div>
 </div>

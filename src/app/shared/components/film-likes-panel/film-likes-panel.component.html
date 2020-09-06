@@ -1,0 +1,12 @@
+<div class="likes-panel-wrapper">
+  <button mat-icon-button color="primary"
+          [disabled]="!loggedIn || likeBlocked"
+          (click)="like()">
+    <mat-icon [class.liked]="film.isLiked === true">thumb_up</mat-icon>
+  </button>
+  <button mat-icon-button color="primary"
+          [disabled]="!loggedIn || dislikeBlocked"
+          (click)="dislike()">
+    <mat-icon [class.disliked]="film.isLiked === false">thumb_down</mat-icon>
+  </button>
+</div>

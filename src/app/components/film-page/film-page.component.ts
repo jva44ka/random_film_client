@@ -26,6 +26,7 @@ export class FilmPageComponent implements OnInit, OnDestroy {
 
       this.filmSub = this.filmHttpService.getFilmById(this.id).subscribe((resFilm: Film) => {
         this.film = resFilm;
+        console.log(resFilm);
       });
     });
   }
