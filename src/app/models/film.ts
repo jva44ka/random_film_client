@@ -13,4 +13,5 @@ export default class Film {
   public genresText?: string;
 
   public genres?: Genre[];
+  public isLiked?: boolean;
 }
