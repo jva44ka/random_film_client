@@ -29,6 +29,10 @@ export class FilmHttpService extends  BaseHttpService {
     return this.getResource<Film>(`${this.nameOfController}/${id}`);
   }
 
+  getFilmByIdForUser(id: Guid): Observable<Film> {
+    return this.getResource<Film>(`${this.nameOfController}/${id}/forUser`);
+  }
+
   getRandomFilms(): Observable<Film> {
     return this.getResource<Film>(`${this.nameOfController}/Random`);
   }
