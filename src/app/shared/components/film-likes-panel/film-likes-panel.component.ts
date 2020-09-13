@@ -17,6 +17,11 @@ export class FilmLikesPanelComponent implements OnInit, OnDestroy {
   likeBlocked: boolean = false;
   dislikeBlocked: boolean = false;
 
+  set buttonsBlocked(value: boolean) {
+    this.likeBlocked = value;
+    this.dislikeBlocked = value;
+  }
+
   @Input() film;
 
   constructor(public authService: AuthService,
@@ -37,14 +42,14 @@ export class FilmLikesPanelComponent implements OnInit, OnDestroy {
     req.userId = this.authService.getUserId();
     req.filmId = this.film.id;
 
-    this.likeBlocked = true;
+    this.buttonsBlocked = true;
 
     switch (this.film.isLiked){
       case (true): {
         req.likeOrDislike = null;
         this.userFilmHttpService.likeOrDislike(req).subscribe(res => {
           this.film.isLiked = null;
-          this.likeBlocked = false;
+          this.buttonsBlocked = false;
         });
         break;
       }
@@ -52,7 +57,7 @@ export class FilmLikesPanelComponent implements OnInit, OnDestroy {
         req.likeOrDislike = true;
         this.userFilmHttpService.likeOrDislike(req).subscribe(res => {
           this.film.isLiked = true;
-          this.likeBlocked = false;
+          this.buttonsBlocked = false;
         });
         break;
       }
@@ -60,7 +65,7 @@ export class FilmLikesPanelComponent implements OnInit, OnDestroy {
         req.likeOrDislike = true;
         this.userFilmHttpService.likeOrDislike(req).subscribe(res => {
           this.film.isLiked = true;
-          this.likeBlocked = false;
+          this.buttonsBlocked = false;
         });
         break;
       }
@@ -72,14 +77,14 @@ export class FilmLikesPanelComponent implements OnInit, OnDestroy {
     req.userId = this.authService.getUserId();
     req.filmId = this.film.id;
 
-    this.dislikeBlocked = true;
+    this.buttonsBlocked = true;
 
     switch (this.film.isLiked){
       case (true): {
         req.likeOrDislike = false;
         this.userFilmHttpService.likeOrDislike(req).subscribe(res => {
           this.film.isLiked = false;
-          this.dislikeBlocked = false;
+          this.buttonsBlocked = false;
         });
         break;
       }
@@ -87,7 +92,7 @@ export class FilmLikesPanelComponent implements OnInit, OnDestroy {
         req.likeOrDislike = null;
         this.userFilmHttpService.likeOrDislike(req).subscribe(res => {
           this.film.isLiked = null;
-          this.dislikeBlocked = false;
+          this.buttonsBlocked = false;
         });
         break;
       }
@@ -96,7 +101,7 @@ export class FilmLikesPanelComponent implements OnInit, OnDestroy {
         this.userFilmHttpService.likeOrDislike(req).subscribe(
         res => {
           this.film.isLiked = false;
-          this.dislikeBlocked = false;
+          this.buttonsBlocked = false;
         });
         break;
       }

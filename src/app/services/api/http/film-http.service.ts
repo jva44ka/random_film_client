@@ -5,7 +5,6 @@ import {HttpClient} from '@angular/common/http';
 import Film from '../../../models/film';
 import {Observable} from 'rxjs';
 import {Guid} from 'guid-typescript';
-import {LikeOrDislikeRequest} from '../../../models/request-models/like-or-dislike-request';
 
 @Injectable({
   providedIn: 'root'
@@ -25,12 +24,11 @@ export class FilmHttpService extends  BaseHttpService {
     return this.getResource<Film[]>(this.nameOfController + params);
   }
 
-  getFilmById(id: Guid): Observable<Film> {
-    return this.getResource<Film>(`${this.nameOfController}/${id}`);
-  }
-
-  getFilmByIdForUser(id: Guid): Observable<Film> {
-    return this.getResource<Film>(`${this.nameOfController}/${id}/forUser`);
+  getFilmById(id: Guid, forUserId: string = ''): Observable<Film> {
+    let params: string = '';
+    if(forUserId)
+      params += `?forUserId=${forUserId}`;
+    return this.getResource<Film>(`${this.nameOfController}/${id}${params}`);
   }
 
   getRandomFilms(): Observable<Film> {
