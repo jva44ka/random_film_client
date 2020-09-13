@@ -10,6 +10,7 @@ import { ModalWindowComponent } from './components/modal-window/modal-window.com
 import {MatDialogModule} from '@angular/material/dialog';
 import { ModalWindowDialogComponent } from './components/modal-window/modal-window-dialog/modal-window-dialog.component';
 import { ModalWindowButtonsComponent } from './components/modal-window/modal-window-buttons/modal-window-buttons.component';
+import { FilmsSelectPreviewComponent } from './components/films-select-preview/films-select-preview.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { ModalWindowButtonsComponent } from './components/modal-window/modal-win
     FilmLikesPanelComponent,
     ModalWindowComponent,
     ModalWindowDialogComponent,
-    ModalWindowButtonsComponent
+    ModalWindowButtonsComponent,
+    FilmsSelectPreviewComponent
   ],
   imports: [
     CommonModule,

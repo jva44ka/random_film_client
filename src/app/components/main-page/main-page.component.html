@@ -1,10 +1,33 @@
 <div class="page-wrapper">
-  <div class="page-content">
-    <modal-window #randomFilmModal [options]="randFilmModalOptions">
-      <button (click)="selectRandomFilm()">RandomFilm</button>
-    </modal-window>
-    <modal-window #specFilmModal [options]="specFilmModalOptions">
-      <button (click)="selectSpecFilm()">RandomFilm</button>
-    </modal-window>
+  <div class="page-content" id="main-page">
+    <header>Здесь вы можете подобрать фильм для себя несколькими способами</header>
+    <div class="film-select-variant">
+      <label>
+        Способ №1: Вам выдается совершенно случайный фильм из базы данных.
+      </label>
+      <modal-window #randomFilmModal [options]="randFilmModalOptions">
+        <button mat-stroked-button (click)="selectRandomFilm()">Получить</button>
+      </modal-window>
+    </div>
+    <mat-divider></mat-divider>
+    <div class="film-select-variant">
+      <label>
+        Способ №2: Вам выдается фильм в соответствие с вашими предпочтениями. Необходимо
+        зарегестрироваться/войти
+        для данного способа.
+      </label>
+      <modal-window #specFilmModal [options]="specFilmModalOptions">
+        <div matTooltip="Необходимо авторизироваться"
+             [matTooltipDisabled]="loggedIn">
+          <button
+            mat-stroked-button
+            (click)="selectSpecFilm()"
+            [disabled]="!loggedIn"
+          >
+            Получить
+          </button>
+        </div>
+      </modal-window>
+    </div>
   </div>
 </div>

@@ -1,13 +1,15 @@
-import {AfterViewInit, Component, OnInit, ViewChild} from '@angular/core';
+import {AfterViewInit, Component, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import {ModalWindowComponent} from '../../shared/components/modal-window/modal-window.component';
 import {IModalWindowOptions} from '../../shared/components/modal-window/modal-window-options';
+import {AuthService} from '../../services/auth.service';
+import {Subscription} from 'rxjs';
 
 @Component({
   selector: 'main-page',
   templateUrl: './main-page.component.html',
   styleUrls: ['./main-page.component.scss']
 })
-export class MainPageComponent implements OnInit, AfterViewInit {
+export class MainPageComponent implements OnInit, AfterViewInit, OnDestroy {
 
   filmModalsOptions: IModalWindowOptions = {
     width: "50%",
@@ -29,19 +31,33 @@ export class MainPageComponent implements OnInit, AfterViewInit {
     title: "Рандомный подбор"
   };
 
+  loggedIn: boolean = false;
+  loginEventSub: Subscription;
+
   @ViewChild('randomFilmModal')
   randomFilmModal: ModalWindowComponent;
 
   @ViewChild('specFilmModal')
   specFilmModal: ModalWindowComponent;
 
-  constructor() { }
+  constructor(private authService: AuthService) { }
 
   ngOnInit(): void {
+    this.loggedIn = !!this.authService.getUserId();
+
+    // Если в будущем будет логин в модалке на фоне MainPage,
+    // то подписка будет актуальна. Сейчас это просто задел на будущее
+    this.loginEventSub = this.authService.loginEvent$.subscribe(res => {
+      this.loggedIn = res?.loggedIn || false;
+    })
   }
 
   ngAfterViewInit(): void {
 
+  }
+
+  ngOnDestroy(): void {
+    this.loginEventSub.unsubscribe();
   }
 
   selectRandomFilm(): void {
