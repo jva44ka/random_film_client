@@ -6,13 +6,24 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
 import {HTTP_INTERCEPTORS} from '@angular/common/http';
 import {HttpInterceptorService} from '../services/http-interceptor.service';
+import { ModalWindowComponent } from './components/modal-window/modal-window.component';
+import {MatDialogModule} from '@angular/material/dialog';
+import { ModalWindowDialogComponent } from './components/modal-window/modal-window-dialog/modal-window-dialog.component';
+import { ModalWindowButtonsComponent } from './components/modal-window/modal-window-buttons/modal-window-buttons.component';
 
 @NgModule({
-  declarations: [YearPipe, FilmLikesPanelComponent],
+  declarations: [
+    YearPipe,
+    FilmLikesPanelComponent,
+    ModalWindowComponent,
+    ModalWindowDialogComponent,
+    ModalWindowButtonsComponent
+  ],
   imports: [
     CommonModule,
     MatButtonModule,
-    MatIconModule
+    MatIconModule,
+    MatDialogModule
   ],
   providers: [
     {
@@ -23,7 +34,8 @@ import {HttpInterceptorService} from '../services/http-interceptor.service';
   ],
   exports: [
     YearPipe,
-    FilmLikesPanelComponent
+    FilmLikesPanelComponent,
+    ModalWindowComponent
   ]
 })
 export class SharedModule { }
