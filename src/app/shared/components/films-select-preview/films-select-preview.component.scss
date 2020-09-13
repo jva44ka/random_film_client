@@ -1,0 +1,9 @@
+.preview-wrapper{
+  display: flex;
+  flex-direction: column;
+
+  #loader{
+    justify-self: center;
+    align-self: center;
+  }
+}

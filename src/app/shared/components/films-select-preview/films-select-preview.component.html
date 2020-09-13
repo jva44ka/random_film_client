@@ -1,1 +1,14 @@
-<p>films-select-preview works!</p>
+<div class="preview-wrapper">
+  <div id="loader" *ngIf="isLodaing">
+    <mat-progress-spinner></mat-progress-spinner>
+  </div>
+  <ngl-carousel
+    *ngIf="!isLodaing"
+    [autoScroll]="false"
+    [autoRefresh]="false">
+    <ngl-carousel-image
+      *ngFor="let film of films; let i = index" [attr.data-index]="i"
+
+    ></ngl-carousel-image>
+  </ngl-carousel>
+</div>

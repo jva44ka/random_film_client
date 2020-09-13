@@ -3,6 +3,7 @@ import {ModalWindowComponent} from '../../shared/components/modal-window/modal-w
 import {IModalWindowOptions} from '../../shared/components/modal-window/modal-window-options';
 import {AuthService} from '../../services/auth.service';
 import {Subscription} from 'rxjs';
+import {FilmHttpService} from '../../services/api/http/film-http.service';
 
 @Component({
   selector: 'main-page',
@@ -40,7 +41,8 @@ export class MainPageComponent implements OnInit, AfterViewInit, OnDestroy {
   @ViewChild('specFilmModal')
   specFilmModal: ModalWindowComponent;
 
-  constructor(private authService: AuthService) { }
+  constructor(private authService: AuthService,
+              public filmHttpService: FilmHttpService) { }
 
   ngOnInit(): void {
     this.loggedIn = !!this.authService.getUserId();

@@ -11,6 +11,8 @@ import {MatDialogModule} from '@angular/material/dialog';
 import { ModalWindowDialogComponent } from './components/modal-window/modal-window-dialog/modal-window-dialog.component';
 import { ModalWindowButtonsComponent } from './components/modal-window/modal-window-buttons/modal-window-buttons.component';
 import { FilmsSelectPreviewComponent } from './components/films-select-preview/films-select-preview.component';
+import {NglModule} from 'ng-lightning';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,9 @@ import { FilmsSelectPreviewComponent } from './components/films-select-preview/f
     CommonModule,
     MatButtonModule,
     MatIconModule,
-    MatDialogModule
+    MatDialogModule,
+    NglModule,
+    MatProgressSpinnerModule
   ],
   providers: [
     {
@@ -37,7 +41,8 @@ import { FilmsSelectPreviewComponent } from './components/films-select-preview/f
   exports: [
     YearPipe,
     FilmLikesPanelComponent,
-    ModalWindowComponent
+    ModalWindowComponent,
+    FilmsSelectPreviewComponent
   ]
 })
 export class SharedModule { }

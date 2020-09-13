@@ -5,7 +5,9 @@
       <label>
         Способ №1: Вам выдается совершенно случайный фильм из базы данных.
       </label>
-      <modal-window #randomFilmModal [options]="randFilmModalOptions">
+      <modal-window #randomFilmModal
+                    [options]="randFilmModalOptions"
+                    [tempRef]="randomFilmPreview">
         <button mat-stroked-button (click)="selectRandomFilm()">Получить</button>
       </modal-window>
     </div>
@@ -16,7 +18,9 @@
         зарегестрироваться/войти
         для данного способа.
       </label>
-      <modal-window #specFilmModal [options]="specFilmModalOptions">
+      <modal-window #specFilmModal
+                    [options]="specFilmModalOptions"
+                    [tempRef]="specFilmPreview">
         <div matTooltip="Необходимо авторизироваться"
              [matTooltipDisabled]="loggedIn">
           <button
@@ -31,3 +35,10 @@
     </div>
   </div>
 </div>
+
+<ng-template #randomFilmPreview>
+  <films-select-preview [selectFilmFunc]="filmHttpService.getRandomFilms"></films-select-preview>
+</ng-template>
+<ng-template #specFilmPreview>
+  <films-select-preview [selectFilmFunc]="filmHttpService.getSpecifityFilms"></films-select-preview>
+</ng-template>
