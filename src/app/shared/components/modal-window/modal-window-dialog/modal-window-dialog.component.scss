@@ -1,6 +1,17 @@
 #modal-window{
   display: flex;
   flex-direction: column;
+
+  header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    h1{
+      margin: 0;
+    }
+  }
 }
 
 #crossmark-button{

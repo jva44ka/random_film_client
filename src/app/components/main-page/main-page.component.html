@@ -1,3 +1,10 @@
-<modal-window #randomFilmModal [options]="randFilmModalOptions">
-  <button (click)="selectRandomFilm()">MODAL</button>
-</modal-window>
+<div class="page-wrapper">
+  <div class="page-content">
+    <modal-window #randomFilmModal [options]="randFilmModalOptions">
+      <button (click)="selectRandomFilm()">RandomFilm</button>
+    </modal-window>
+    <modal-window #specFilmModal [options]="specFilmModalOptions">
+      <button (click)="selectSpecFilm()">RandomFilm</button>
+    </modal-window>
+  </div>
+</div>

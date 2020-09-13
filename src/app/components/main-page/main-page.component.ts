@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, OnInit, TemplateRef, ViewChild} from '@angular/core';
+import {AfterViewInit, Component, OnInit, ViewChild} from '@angular/core';
 import {ModalWindowComponent} from '../../shared/components/modal-window/modal-window.component';
 import {IModalWindowOptions} from '../../shared/components/modal-window/modal-window-options';
 
@@ -32,6 +32,9 @@ export class MainPageComponent implements OnInit, AfterViewInit {
   @ViewChild('randomFilmModal')
   randomFilmModal: ModalWindowComponent;
 
+  @ViewChild('specFilmModal')
+  specFilmModal: ModalWindowComponent;
+
   constructor() { }
 
   ngOnInit(): void {
@@ -43,5 +46,9 @@ export class MainPageComponent implements OnInit, AfterViewInit {
 
   selectRandomFilm(): void {
     this.randomFilmModal?.openDialog();
+  }
+
+  selectSpecFilm(): void {
+    this.specFilmModal?.openDialog();
   }
 }
