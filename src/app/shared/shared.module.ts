@@ -11,8 +11,10 @@ import {MatDialogModule} from '@angular/material/dialog';
 import { ModalWindowDialogComponent } from './components/modal-window/modal-window-dialog/modal-window-dialog.component';
 import { ModalWindowButtonsComponent } from './components/modal-window/modal-window-buttons/modal-window-buttons.component';
 import { FilmsSelectPreviewComponent } from './components/films-select-preview/films-select-preview.component';
-import {NglModule} from 'ng-lightning';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import {IvyCarouselModule} from 'angular-responsive-carousel';
+import {CarouselModule, WavesModule} from 'angular-bootstrap-md';
+import {NglCarouselModule} from 'ng-lightning';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,9 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
     MatButtonModule,
     MatIconModule,
     MatDialogModule,
-    NglModule,
+    CarouselModule,
+    WavesModule,
+    IvyCarouselModule,
     MatProgressSpinnerModule
   ],
   providers: [

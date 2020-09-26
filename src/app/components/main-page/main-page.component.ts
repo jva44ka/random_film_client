@@ -13,8 +13,8 @@ import {FilmHttpService} from '../../services/api/http/film-http.service';
 export class MainPageComponent implements OnInit, AfterViewInit, OnDestroy {
 
   filmModalsOptions: IModalWindowOptions = {
-    width: "50%",
-    height: "50%",
+    width: "80%",
+    height: "80%",
     title: "Выбор фильма",
     containsForm: true,
     isConfirmation: true,
@@ -47,6 +47,7 @@ export class MainPageComponent implements OnInit, AfterViewInit, OnDestroy {
   ngOnInit(): void {
     this.loggedIn = !!this.authService.getUserId();
 
+    console.log(this);
     // Если в будущем будет логин в модалке на фоне MainPage,
     // то подписка будет актуальна. Сейчас это просто задел на будущее
     this.loginEventSub = this.authService.loginEvent$.subscribe(res => {

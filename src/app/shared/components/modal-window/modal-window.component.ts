@@ -16,8 +16,10 @@ export class ModalWindowComponent {
 
   openDialog(): void {
     const dialogRef = this.dialog.open(ModalWindowDialogComponent, {
-      minWidth: '300px',
-      maxWidth: '70%',
+      minWidth: '30%',
+      maxWidth: '80%',
+      minHeight: '30%',
+      maxHeight: '80%',
       width: this.options.width,
       height: this.options.height,
       data: {

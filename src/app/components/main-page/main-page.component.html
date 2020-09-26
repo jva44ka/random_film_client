@@ -37,8 +37,8 @@
 </div>
 
 <ng-template #randomFilmPreview>
-  <films-select-preview [selectFilmFunc]="filmHttpService.getRandomFilms"></films-select-preview>
+  <films-select-preview [isRandomFilm]="true"></films-select-preview>
 </ng-template>
 <ng-template #specFilmPreview>
-  <films-select-preview [selectFilmFunc]="filmHttpService.getSpecifityFilms"></films-select-preview>
+  <films-select-preview [isSpecifityFilm]="true"></films-select-preview>
 </ng-template>

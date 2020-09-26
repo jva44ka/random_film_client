@@ -1,14 +1,14 @@
 <div class="preview-wrapper">
   <div id="loader" *ngIf="isLodaing">
-    <mat-progress-spinner></mat-progress-spinner>
+    <mat-spinner></mat-spinner>
   </div>
-  <ngl-carousel
+  <carousel
     *ngIf="!isLodaing"
-    [autoScroll]="false"
-    [autoRefresh]="false">
-    <ngl-carousel-image
-      *ngFor="let film of films; let i = index" [attr.data-index]="i"
-
-    ></ngl-carousel-image>
-  </ngl-carousel>
+    [autoplay]="false"
+    [cellsToShow]="1"
+    [cellWidth]="500">
+    <div class="carousel-cell" *ngFor="let film of films; let i = index" [attr.data-index]="i">
+      <img [src]="film.preview">
+    </div>
+  </carousel>
 </div>
