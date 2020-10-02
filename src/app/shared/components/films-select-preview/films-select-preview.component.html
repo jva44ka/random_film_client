@@ -6,7 +6,7 @@
     *ngIf="!isLodaing"
     [autoplay]="false"
     [cellsToShow]="1"
-    [cellWidth]="500">
+    [height]="previewWidth">
     <div class="carousel-cell" *ngFor="let film of films; let i = index" [attr.data-index]="i">
       <img [src]="film.preview">
     </div>

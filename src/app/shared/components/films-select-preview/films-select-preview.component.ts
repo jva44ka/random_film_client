@@ -1,5 +1,4 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {Observable} from 'rxjs';
 import Film from '../../../models/film';
 import {FilmHttpService} from '../../../services/api/http/film-http.service';
 
@@ -26,10 +25,6 @@ export class FilmsSelectPreviewComponent implements OnInit {
 
   ngOnInit(): void {
     this.isLodaing = true;
-    /*this.filmsService.getRandomFilms().subscribe(res => {
-      this.films = res;
-      this.isLodaing = false;
-    })*/
     if(this.isSpecifityFilm)
       this.filmsService.getSpecifityFilms().subscribe(res => {
         this.films = res;
@@ -43,16 +38,4 @@ export class FilmsSelectPreviewComponent implements OnInit {
     else
       throw Error('Unknow selecting film function');
   }
-
-  replaceFunctionContext(func: () => Observable<Film[]>): () => Observable<Film[]> {
-    switch(func.name){
-      case this.filmsService.getRandomFilms.name:
-        return this.filmsService.getRandomFilms;
-      case this.filmsService.getSpecifityFilms.name:
-        return this.filmsService.getSpecifityFilms;
-      default:
-        throw Error('Unknown selecting film function');
-    }
-  }
-
 }

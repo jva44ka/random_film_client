@@ -19,7 +19,7 @@ export class ModalWindowComponent {
       minWidth: '30%',
       maxWidth: '80%',
       minHeight: '30%',
-      maxHeight: '80%',
+      maxHeight: '90%',
       width: this.options.width,
       height: this.options.height,
       data: {
