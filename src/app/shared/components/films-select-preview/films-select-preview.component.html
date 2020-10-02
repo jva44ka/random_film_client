@@ -6,9 +6,23 @@
     *ngIf="!isLodaing"
     [autoplay]="false"
     [cellsToShow]="1"
-    [height]="previewWidth">
+    [cellWidth]="500"
+    [height]="previewHeight">
     <div class="carousel-cell" *ngFor="let film of films; let i = index" [attr.data-index]="i">
-      <img [src]="film.preview">
+      <div [style.height]="previewHeight"
+           [style.min-height]="previewHeight"
+      >
+        <img [src]="film.preview">
+        <button (click)="selectFilm(film.id)">
+          <h1>
+            {{film.title}}
+          </h1>
+        </button>
+      </div>
+      <!--<div [style.max-height]="previewHeight">
+        <img [src]="film.preview" [height]="previewHeight">
+        {{film.title}}
+      </div>-->
     </div>
   </carousel>
 </div>

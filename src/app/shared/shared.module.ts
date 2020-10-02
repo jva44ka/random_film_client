@@ -15,6 +15,7 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {IvyCarouselModule} from 'angular-responsive-carousel';
 import {CarouselModule, WavesModule} from 'angular-bootstrap-md';
 import {NglCarouselModule} from 'ng-lightning';
+import {RouterModule} from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import {NglCarouselModule} from 'ng-lightning';
   ],
   imports: [
     CommonModule,
+    RouterModule,
     MatButtonModule,
     MatIconModule,
     MatDialogModule,

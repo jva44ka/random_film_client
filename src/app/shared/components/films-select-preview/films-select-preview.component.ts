@@ -1,6 +1,8 @@
 import {Component, Input, OnInit} from '@angular/core';
 import Film from '../../../models/film';
 import {FilmHttpService} from '../../../services/api/http/film-http.service';
+import {Router} from '@angular/router';
+import {Guid} from 'guid-typescript';
 
 @Component({
   selector: 'films-select-preview',
@@ -15,13 +17,14 @@ export class FilmsSelectPreviewComponent implements OnInit {
   films: Film[];
   isLodaing: boolean = false;
 
-  previewWidth: number = 500;
+  previewHeight: number = 500;
 
   get images(): string[] {
     return this.films.map((film: Film) => film.preview);
   }
 
-  constructor(private filmsService: FilmHttpService) { }
+  constructor(private filmsService: FilmHttpService,
+              private router: Router) { }
 
   ngOnInit(): void {
     this.isLodaing = true;
@@ -37,5 +40,9 @@ export class FilmsSelectPreviewComponent implements OnInit {
       });
     else
       throw Error('Unknow selecting film function');
+  }
+
+  selectFilm(filmId: Guid): void {
+    this.router.navigate(['film', filmId]);
   }
 }
