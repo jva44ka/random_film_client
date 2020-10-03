@@ -1,8 +1,9 @@
-#modal-window{
+#modal-window {
   display: flex;
   flex-direction: column;
+  height: 100%;
 
-  header{
+  header {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -12,8 +13,12 @@
       margin: 0;
     }
   }
+
+  .mat-dialog-content {
+    height: 100%;
+  }
 }
 
-#crossmark-button{
+#crossmark-button {
   align-self: flex-end;
 }
