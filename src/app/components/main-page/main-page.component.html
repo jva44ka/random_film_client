@@ -37,8 +37,8 @@
 </div>
 
 <ng-template #randomFilmPreview>
-  <films-select-preview [isRandomFilm]="true"></films-select-preview>
+  <films-select-preview [isRandomFilm]="true" (filmSelectedEvent)="randomFilmModal.dialog.closeAll()"></films-select-preview>
 </ng-template>
 <ng-template #specFilmPreview>
-  <films-select-preview [isSpecifityFilm]="true"></films-select-preview>
+  <films-select-preview [isSpecifityFilm]="true" (filmSelectedEvent)="specFilmModal.dialog.closeAll()"></films-select-preview>
 </ng-template>

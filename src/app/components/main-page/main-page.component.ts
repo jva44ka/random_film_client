@@ -13,7 +13,7 @@ import {FilmHttpService} from '../../services/api/http/film-http.service';
 export class MainPageComponent implements OnInit, AfterViewInit, OnDestroy {
 
   filmModalsOptions: IModalWindowOptions = {
-    width: "80%",
+    width: "50%",
     height: "80%",
     title: "Выбор фильма",
     containsForm: true,

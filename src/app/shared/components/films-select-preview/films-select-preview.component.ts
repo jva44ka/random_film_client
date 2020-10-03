@@ -1,8 +1,9 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import Film from '../../../models/film';
 import {FilmHttpService} from '../../../services/api/http/film-http.service';
 import {Router} from '@angular/router';
 import {Guid} from 'guid-typescript';
+import {ModalWindowComponent} from '../modal-window/modal-window.component';
 
 @Component({
   selector: 'films-select-preview',
@@ -13,6 +14,7 @@ export class FilmsSelectPreviewComponent implements OnInit {
 
   @Input() isSpecifityFilm: boolean = false;
   @Input() isRandomFilm: boolean = false;
+  @Output() filmSelectedEvent: EventEmitter<void> = new EventEmitter<void>();
 
   films: Film[];
   isLodaing: boolean = false;
@@ -44,5 +46,6 @@ export class FilmsSelectPreviewComponent implements OnInit {
 
   selectFilm(filmId: Guid): void {
     this.router.navigate(['film', filmId]);
+    this.filmSelectedEvent.emit();
   }
 }
