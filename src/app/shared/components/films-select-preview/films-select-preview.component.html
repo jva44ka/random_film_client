@@ -2,27 +2,33 @@
   <div id="loader" *ngIf="isLodaing">
     <mat-spinner></mat-spinner>
   </div>
-  <carousel
-    *ngIf="!isLodaing"
-    [autoplay]="false"
-    [cellsToShow]="1"
-    [cellWidth]="500"
-    [height]="previewHeight">
-    <div class="carousel-cell" *ngFor="let film of films; let i = index" [attr.data-index]="i">
-      <div [style.height]="previewHeight"
-           [style.min-height]="previewHeight"
-      >
-        <img [src]="film.preview">
-        <button (click)="selectFilm(film.id)">
-          <h1>
-            {{film.title}}
-          </h1>
+  <div *ngIf="films && films.length > 0" class="selected-film-wrapepr"
+       [style.background-image]="'url(' + this.films[this.currentFilmNum].preview + ')'">
+    <div class="selected-film-wrapepr-opacity">
+      <button mat-icon-button
+              id="prev-film"
+              [disabled]="prevFilmAvailable ? null : true"
+              (click)="prevFilm()">
+        <mat-icon>
+          keyboard_arrow_left
+        </mat-icon>
+      </button>
+      <button mat-icon-button
+              id="next-film"
+              [disabled]="nextFilmAvailable ? null : true"
+              (click)="nextFilm()">
+        <mat-icon>
+          keyboard_arrow_right
+        </mat-icon>
+      </button>
+      <div id="down-panel">
+        <button mat-stroked-button
+                id="film-title"
+                (click)="selectFilm(films[currentFilmNum].id)">
+          {{films[currentFilmNum].title}}
         </button>
+        <film-likes-panel [film]="films[currentFilmNum]"></film-likes-panel>
       </div>
-      <!--<div [style.max-height]="previewHeight">
-        <img [src]="film.preview" [height]="previewHeight">
-        {{film.title}}
-      </div>-->
     </div>
-  </carousel>
+  </div>
 </div>

@@ -3,7 +3,7 @@ import Film from '../../../models/film';
 import {FilmHttpService} from '../../../services/api/http/film-http.service';
 import {Router} from '@angular/router';
 import {Guid} from 'guid-typescript';
-import {ModalWindowComponent} from '../modal-window/modal-window.component';
+import {DomSanitizer, SafeStyle} from '@angular/platform-browser';
 
 @Component({
   selector: 'films-select-preview',
@@ -19,14 +19,12 @@ export class FilmsSelectPreviewComponent implements OnInit {
   films: Film[];
   isLodaing: boolean = false;
 
-  previewHeight: number = 500;
-
-  get images(): string[] {
-    return this.films.map((film: Film) => film.preview);
-  }
+  prevFilmAvailable: boolean = false;
+  nextFilmAvailable: boolean = false;
+  currentFilmNum: number = 0;
 
   constructor(private filmsService: FilmHttpService,
-              private router: Router) { }
+              private router: Router) {}
 
   ngOnInit(): void {
     this.isLodaing = true;
@@ -34,14 +32,34 @@ export class FilmsSelectPreviewComponent implements OnInit {
       this.filmsService.getSpecifityFilms().subscribe(res => {
         this.films = res;
         this.isLodaing = false;
+        this.calculateButtonsAvailable();
       });
     else if(this.isRandomFilm)
       this.filmsService.getRandomFilms().subscribe(res => {
         this.films = res;
         this.isLodaing = false;
+        this.calculateButtonsAvailable();
       });
     else
       throw Error('Unknow selecting film function');
+  }
+
+  prevFilm(): void {
+    this.currentFilmNum--;
+    this.calculateButtonsAvailable();
+  }
+
+  nextFilm(): void {
+    this.currentFilmNum++;
+    this.calculateButtonsAvailable();
+  }
+
+  calculateButtonsAvailable(): void {
+    //left
+    this.prevFilmAvailable = this.films && this.films.length > 0 && this.currentFilmNum > 0; //if(this.films > 0 && this.currentFilmNum > 0)
+
+    //right
+    this.nextFilmAvailable = this.films && this.films.length > 0 && this.currentFilmNum < (this.films.length - 1);
   }
 
   selectFilm(filmId: Guid): void {
