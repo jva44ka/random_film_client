@@ -5,3 +5,15 @@
   grid-gap: 5px;
   margin: 5px;
 }
+
+@media screen and (max-width: 768px){
+  .film-list-wrapper{
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (min-width: 769px){
+  .film-list-wrapper{
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

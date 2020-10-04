@@ -31,11 +31,14 @@ export class FilmHttpService extends  BaseHttpService {
     return this.getResource<Film>(`${this.nameOfController}/${id}${params}`);
   }
 
-  getRandomFilms(): Observable<Film> {
-    return this.getResource<Film>(`${this.nameOfController}/Random`);
+  getRandomFilms(forUserId: string = ''): Observable<Film[]> {
+    let params: string = '';
+    if(forUserId)
+      params += `?forUserId=${forUserId}`;
+    return this.getResource<Film[]>(`${this.nameOfController}/Random${params}`);
   }
 
-  getSpecifityFilms(): Observable<Film> {
-    return this.getResource<Film>(`${this.nameOfController}/Specificity`);
+  getSpecifityFilms(): Observable<Film[]> {
+    return this.getResource<Film[]>(`${this.nameOfController}/Specificity`);
   }
 }
