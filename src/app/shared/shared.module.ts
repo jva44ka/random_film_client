@@ -12,9 +12,6 @@ import { ModalWindowDialogComponent } from './components/modal-window/modal-wind
 import { ModalWindowButtonsComponent } from './components/modal-window/modal-window-buttons/modal-window-buttons.component';
 import { FilmsSelectPreviewComponent } from './components/films-select-preview/films-select-preview.component';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
-import {IvyCarouselModule} from 'angular-responsive-carousel';
-import {CarouselModule, WavesModule} from 'angular-bootstrap-md';
-import {NglCarouselModule} from 'ng-lightning';
 import {RouterModule} from '@angular/router';
 
 @NgModule({
@@ -32,9 +29,6 @@ import {RouterModule} from '@angular/router';
     MatButtonModule,
     MatIconModule,
     MatDialogModule,
-    CarouselModule,
-    WavesModule,
-    IvyCarouselModule,
     MatProgressSpinnerModule
   ],
   providers: [

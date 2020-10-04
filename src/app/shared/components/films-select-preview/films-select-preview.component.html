@@ -4,7 +4,7 @@
   </div>
   <div *ngIf="films && films.length > 0" class="selected-film-wrapepr"
        [style.background-image]="'url(' + this.films[this.currentFilmNum].preview + ')'">
-    <div class="selected-film-wrapepr-opacity">
+    <div class="selected-film-wrapepr-gradient"></div>
       <button mat-icon-button
               id="prev-film"
               [disabled]="prevFilmAvailable ? null : true"
@@ -29,6 +29,5 @@
         </button>
         <film-likes-panel [film]="films[currentFilmNum]"></film-likes-panel>
       </div>
-    </div>
   </div>
 </div>

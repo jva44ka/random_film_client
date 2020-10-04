@@ -4,6 +4,7 @@ import {FilmHttpService} from '../../../services/api/http/film-http.service';
 import {Router} from '@angular/router';
 import {Guid} from 'guid-typescript';
 import {DomSanitizer, SafeStyle} from '@angular/platform-browser';
+import {AuthService} from '../../../services/auth.service';
 
 @Component({
   selector: 'films-select-preview',
@@ -24,6 +25,7 @@ export class FilmsSelectPreviewComponent implements OnInit {
   currentFilmNum: number = 0;
 
   constructor(private filmsService: FilmHttpService,
+              private authService: AuthService,
               private router: Router) {}
 
   ngOnInit(): void {
@@ -35,7 +37,7 @@ export class FilmsSelectPreviewComponent implements OnInit {
         this.calculateButtonsAvailable();
       });
     else if(this.isRandomFilm)
-      this.filmsService.getRandomFilms().subscribe(res => {
+      this.filmsService.getRandomFilms(this.authService.getUserId()).subscribe(res => {
         this.films = res;
         this.isLodaing = false;
         this.calculateButtonsAvailable();
