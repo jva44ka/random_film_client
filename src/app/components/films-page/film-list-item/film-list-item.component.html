@@ -5,7 +5,8 @@
     <mat-card-subtitle>{{film.year | yearPipe}}</mat-card-subtitle>
     <mat-card-subtitle>{{film.genresText}}</mat-card-subtitle>
   </mat-card-header>
-  <mat-card-actions>
+  <mat-card-actions id="film-card-actions">
     <button mat-stroked-button [routerLink]="['/film', film.id]">Подробнее</button>
+    <film-likes-panel [film]="film"></film-likes-panel>
   </mat-card-actions>
 </mat-card>

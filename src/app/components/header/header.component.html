@@ -1,11 +1,11 @@
 <mat-toolbar>
-    <a mat-button [routerLink]="['']">Random Film</a>
-    <a mat-button [routerLink]="['/films']">Фильмы</a>
-    <span id="header-spacer"></span>
-    <button mat-icon-button class="example-icon" [matMenuTriggerFor]="loggedIn ? loggedInMenu : menu"
-    >
-      <mat-icon>menu</mat-icon>
-    </button>
+  <a mat-button [routerLink]="['']">Random Film</a>
+  <a mat-button [routerLink]="['/films']">Фильмы</a>
+  <span id="header-spacer"></span>
+  <button mat-icon-button class="example-icon" [matMenuTriggerFor]="loggedIn ? loggedInMenu : menu"
+  >
+    <mat-icon>menu</mat-icon>
+  </button>
 </mat-toolbar>
 
 <mat-menu #menu>

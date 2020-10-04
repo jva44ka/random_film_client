@@ -1,0 +1,17 @@
+<div>
+  <button
+    mat-stroked-button
+    color="warn"
+    *ngIf="showCancel"
+    (click)="cancelClick()"
+  >
+    Cancel
+  </button>
+  <button
+    mat-stroked-button
+    type="submit"
+    (click)="submitClick()"
+  >
+    Ok
+  </button>
+</div>

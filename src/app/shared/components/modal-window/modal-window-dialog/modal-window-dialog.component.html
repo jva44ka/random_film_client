@@ -1,0 +1,22 @@
+<div id="modal-window">
+  <header>
+    <h1 mat-dialog-title>{{ data.title }}</h1>
+    <button
+      *ngIf="data.crossMark"
+      mat-icon-button
+      id="crossmark-button"
+      (click)="cancel()">
+      <mat-icon>close</mat-icon>
+    </button>
+  </header>
+  <div mat-dialog-content>
+    <p *ngIf="data.message?.trim()">{{ data.message }}</p>
+    <ng-container *ngTemplateOutlet="data.templateRef"></ng-container>
+  </div>
+  <modal-window-buttons
+    *ngIf="!data.containsForm"
+    [showCancel]="data.isConfirmation"
+    (cancel)="cancel()"
+    (submit)="ok()"
+  ></modal-window-buttons>
+</div>
