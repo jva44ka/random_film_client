@@ -3,6 +3,7 @@ import {Subscription} from 'rxjs';
 import {AuthService} from '../../services/auth.service';
 import {Router} from '@angular/router';
 import {Error} from '../../models/error';
+import {ThemeService} from '../../services/theme.service';
 
 @Component({
   selector: 'login-page',
@@ -20,7 +21,8 @@ export class LoginPageComponent implements OnInit {
   loginResultSub: Subscription;
 
   constructor(private authService: AuthService,
-              private router: Router) { }
+              private router: Router,
+              private themeService: ThemeService) { }
 
   ngOnInit(): void {
     this.loginResultSub = this.authService.loginEvent$.subscribe(loginResult => {

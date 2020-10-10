@@ -1,0 +1,13 @@
+:host {
+  .page-content {
+    height: 100%;
+
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+
+    p {
+      font-size: 14px;
+    }
+  }
+}
