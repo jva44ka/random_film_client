@@ -1,0 +1,41 @@
+.theme-1 {
+  //colors
+  $style-blue-1: blue;
+  $style-blue-2: rgba($style-blue-1, 0.85);
+  $style-blue-3: rgba($style-blue-1, 0.7);
+
+  $style-white-1: white;
+
+  $style-grey-1: #e1e1e1;
+  $style-grey-2: #ebebeb;
+
+  $style-black-1: black;
+  ///////
+
+  //controls
+  .btn.primary {
+    background: $style-blue-1;
+    color: $style-white-1;
+  }
+
+  .btn.primary:hover {
+    background: $style-blue-2;
+  }
+
+  .btn.primary:active {
+    background: $style-blue-3;
+  }
+
+  .header-btn {
+    color: $style-black-1;
+  }
+
+  .header-btn:hover {
+    background-color: $style-grey-2;
+  }
+  //////////
+
+  #main-header, #main-footer {
+    background-color: $style-grey-1;
+  }
+}
