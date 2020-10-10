@@ -1,12 +1,25 @@
-<mat-toolbar>
-  <a mat-button [routerLink]="['']">Random Film</a>
-  <a mat-button [routerLink]="['/films']">Фильмы</a>
-  <span id="header-spacer"></span>
-  <button mat-icon-button class="example-icon" [matMenuTriggerFor]="loggedIn ? loggedInMenu : menu"
-  >
-    <mat-icon>menu</mat-icon>
-  </button>
-</mat-toolbar>
+<header id="main-header">
+  <div class="header-wrapper">
+    <div class="header-content">
+      <ul>
+        <li>
+          <a class="header-btn"
+             [routerLink]="['']">Random Film</a>
+        </li>
+        <li>
+          <a class="header-btn"
+             [routerLink]="['/films']">Фильмы</a>
+        </li>
+      </ul>
+      <button id="account-menu-button"
+              mat-icon-button
+              [matMenuTriggerFor]="loggedIn ? loggedInMenu : menu"
+      >
+        <mat-icon>menu</mat-icon>
+      </button>
+    </div>
+  </div>
+</header>
 
 <mat-menu #menu>
   <a mat-menu-item [routerLink]="['/login']">

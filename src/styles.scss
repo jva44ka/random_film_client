@@ -1,9 +1,14 @@
-/* You can add global styles to this file, and also import other style files */
+@import 'color-styles.scss';
+
+$header-height: 80px;
+$footer-height: 60px;
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
-.page-wrapper{
+.page-wrapper,
+.header-wrapper,
+.footer-wrapper {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -11,25 +16,84 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   margin: 0;
 }
 
-.page-content {
+.header-wrapper {
+  height: 100%;
+  width: 100%;
+}
+
+.page-wrapper {
+  min-height: calc(100vh - #{$header-height + $footer-height});
+}
+
+.page-content,
+.header-content,
+.footer-content {
+  display: flex;
+  height: 100%;
+}
+
+.page-content,
+.header-content {
   justify-self: center;
   align-self: center;
 }
 
+.page-content {
+  height: 100%;
+}
+
+.footer-content {
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+
+#main-header {
+  height: $header-height;
+}
+
+#main-footer {
+  height: $footer-height;
+}
+
+// media
 @media screen and (max-width: 768px){
-  .page-content{
+  .page-content,
+  .header-content,
+  .footer-content {
     width: 100%;
   }
 }
 
 @media screen and (min-width: 769px) and (max-width: 1080px){
-  .page-content{
+  .page-content,
+  .header-content,
+  .footer-content {
     width: 768px;
   }
 }
 
 @media screen and (min-width: 1081px) and (max-width: 1920px){
-  .page-content{
+  .page-content,
+  .header-content,
+  .footer-content {
     width: 1080px;
   }
+}
+
+//shared controls
+.btn {
+  border-radius: 5px;
+  border-style: none;
+
+  height: 40px;
+  width: 200px;
+  font-size: 16px;
+}
+
+.header-btn {
+  height: 100%;
+  width: 100px;
+  font-size: 18px;
+
+  text-decoration: none;
 }
