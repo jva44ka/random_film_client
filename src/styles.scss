@@ -2,6 +2,7 @@
 
 $header-height: 80px;
 $footer-height: 60px;
+$buttons-transition-time: 0.2s;
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
@@ -88,6 +89,8 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   height: 40px;
   width: 200px;
   font-size: 16px;
+
+  transition: $buttons-transition-time;
 }
 
 .header-btn {
@@ -96,6 +99,12 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   font-size: 18px;
 
   text-decoration: none;
+
+  transition: $buttons-transition-time;
+}
+
+.header-btn:hover {
+  transition: $buttons-transition-time;
 }
 
 .circle-btn {
@@ -110,6 +119,12 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
   outline: 0;
   cursor: pointer;
+
+  transition: $buttons-transition-time;
+}
+
+.circle-btn:hover {
+  transition: $buttons-transition-time;
 }
 
 .circle-btn:disabled {
