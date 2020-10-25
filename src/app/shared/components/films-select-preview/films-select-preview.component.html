@@ -5,21 +5,23 @@
   <div *ngIf="films && films.length > 0" class="selected-film-wrapepr"
        [style.background-image]="'url(' + this.films[this.currentFilmNum].preview + ')'">
     <div class="selected-film-wrapepr-gradient"></div>
-      <button mat-icon-button
+      <button class="circle-btn"
               id="prev-film"
               [disabled]="prevFilmAvailable ? null : true"
               (click)="prevFilm()">
-        <mat-icon>
-          keyboard_arrow_left
-        </mat-icon>
+        <img src="assets/arrow.svg"
+             width="25px"
+             height="25px"
+             class="arrow-left">
       </button>
-      <button mat-icon-button
+      <button class="circle-btn"
               id="next-film"
               [disabled]="nextFilmAvailable ? null : true"
               (click)="nextFilm()">
-        <mat-icon>
-          keyboard_arrow_right
-        </mat-icon>
+        <img src="assets/arrow.svg"
+             width="25px"
+             height="25px"
+             class="arrow-right">
       </button>
       <div id="down-panel">
         <button mat-stroked-button
