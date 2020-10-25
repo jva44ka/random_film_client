@@ -13,16 +13,16 @@
   ///////
 
   //controls
-  .btn.primary {
+  .btn-primary {
     background: $style-blue-1;
     color: $style-white-1;
   }
 
-  .btn.primary:hover {
+  .btn-primary:hover {
     background: $style-blue-2;
   }
 
-  .btn.primary:active {
+  .btn-primary:active {
     background: $style-blue-3;
   }
 
