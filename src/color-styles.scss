@@ -33,6 +33,18 @@
   .header-btn:hover {
     background-color: $style-grey-2;
   }
+
+  .circle-btn {
+    background-color: $style-white-1;
+  }
+
+  .circle-btn:hover {
+    background-color: rgba($style-white-1, 0.8);
+  }
+
+  .circle-btn:disabled {
+    background-color: rgba($style-white-1, 0.6);
+  }
   //////////
 
   #main-header, #main-footer {
