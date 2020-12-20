@@ -6,7 +6,7 @@ import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatButtonModule} from '@angular/material/button';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
-import {IvyCarouselModule} from 'angular-responsive-carousel';
+import {DragScrollModule} from 'ngx-drag-scroll';
 
 
 
@@ -19,7 +19,7 @@ import {IvyCarouselModule} from 'angular-responsive-carousel';
     MatButtonModule,
     MatDividerModule,
     MatProgressSpinnerModule,
-    IvyCarouselModule
+    DragScrollModule
   ],
   exports: [MainPageComponent]
 })

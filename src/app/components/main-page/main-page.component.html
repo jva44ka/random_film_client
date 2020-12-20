@@ -9,11 +9,9 @@
       <label>
         Способ №1: Вам выдается совершенно случайный фильм из базы данных.
       </label>
-      <carousel [cellsToShow]="3" [height]="200" [cellWidth]="200">
-        <div class="carousel-cell" *ngFor="let film of randomFilms">
-          <img [src]="film.preview">
-        </div>
-      </carousel>
+      <drag-scroll [scrollbar-hidden]="true" [drag-scroll-y-disabled]="true">
+        <img drag-scroll-item *ngFor="let film of randomFilms" [src]="film.preview" (click)="filmCardClick(film.title)">
+      </drag-scroll>
     </div>
     <mat-divider></mat-divider>
     <div class="film-selection">
@@ -22,9 +20,9 @@
         зарегестрироваться/войти
         для данного способа.
       </label>
-      <carousel *ngIf="sameUsersFilms">
-        <img *ngFor="let film of sameUsersFilms" [src]="film.preview">
-      </carousel>
+      <drag-scroll *ngIf="sameUsersFilms" [scrollbar-hidden]="true" [drag-scroll-y-disabled]="true">
+        <img *ngFor="let film of sameUsersFilms" [src]="film.preview" (click)="filmCardClick(film.title)">
+      </drag-scroll>
     </div>
   </div>
 </div>

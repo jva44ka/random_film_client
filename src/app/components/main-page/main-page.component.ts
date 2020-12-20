@@ -7,6 +7,7 @@ import {FilmHttpService} from '../../services/api/http/film-http.service';
 import {ThemeService} from '../../services/theme.service';
 import {FilmsStoreService} from '../../services/stores/films-store.service';
 import Film from '../../models/film';
+import {DragScrollComponent} from 'ngx-drag-scroll';
 
 @Component({
   selector: 'main-page',
@@ -29,7 +30,6 @@ export class MainPageComponent implements OnInit, AfterViewInit, OnDestroy {
   ngOnInit(): void {
     this.loggedIn = !!this.authService.getUserId();
 
-    //console.log(this);
     // Если в будущем будет логин в модалке на фоне MainPage,
     // то подписка будет актуальна. Сейчас это просто задел на будущее
     this.subscriptions.push(
@@ -61,5 +61,9 @@ export class MainPageComponent implements OnInit, AfterViewInit, OnDestroy {
     for(let sub of this.subscriptions) {
       sub?.unsubscribe();
     }
+  }
+
+  filmCardClick(filmName: string): void {
+    console.log(filmName);
   }
 }

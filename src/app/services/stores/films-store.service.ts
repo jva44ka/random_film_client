@@ -22,6 +22,7 @@ export class FilmsStoreService extends FilmHttpService {
     super.getSelections().subscribe((res: GetSelectionsResult) => {
       this.randomFilms = res.randomFilms;
       this.sameUserFilms = res.sameUserFilms;
+      console.log(res);
       this.isLoading$.next(false);
     });
   }

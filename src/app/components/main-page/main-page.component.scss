@@ -20,11 +20,14 @@
         margin: 5px;
       }
 
-      carousel {
+      drag-scroll {
         width: 100%;
+        height: 200px;
 
-        .carousel-cells {
-          width: 200px !important;
+        img {
+          width: 300px;
+          margin: 10px;
+          border-radius: 5px;
         }
       }
     }
