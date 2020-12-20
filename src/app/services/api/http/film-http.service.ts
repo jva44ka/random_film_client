@@ -5,6 +5,7 @@ import {HttpClient} from '@angular/common/http';
 import Film from '../../../models/film';
 import {Observable} from 'rxjs';
 import {Guid} from 'guid-typescript';
+import {GetSelectionsResult} from '../../../models/result-models/get-selections-result';
 
 @Injectable({
   providedIn: 'root'
@@ -40,5 +41,9 @@ export class FilmHttpService extends  BaseHttpService {
 
   getSpecifityFilms(): Observable<Film[]> {
     return this.getResource<Film[]>(`${this.nameOfController}/Specificity`);
+  }
+
+  getSelections(): Observable<GetSelectionsResult> {
+    return this.getResource<GetSelectionsResult>(`${this.nameOfController}/selections`);
   }
 }

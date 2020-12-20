@@ -29,7 +29,7 @@ export class FilmsSelectPreviewComponent implements OnInit {
               private router: Router) {}
 
   ngOnInit(): void {
-    this.isLodaing = true;
+    /*this.isLodaing = true;
     if(this.isSpecifityFilm)
       this.filmsService.getSpecifityFilms().subscribe(res => {
         this.films = res;
@@ -43,29 +43,29 @@ export class FilmsSelectPreviewComponent implements OnInit {
         this.calculateButtonsAvailable();
       });
     else
-      throw Error('Unknow selecting film function');
+      throw Error('Unknow selecting film function');*/
   }
 
   prevFilm(): void {
-    this.currentFilmNum--;
-    this.calculateButtonsAvailable();
+    /*this.currentFilmNum--;
+    this.calculateButtonsAvailable();*/
   }
 
   nextFilm(): void {
-    this.currentFilmNum++;
-    this.calculateButtonsAvailable();
+    /*this.currentFilmNum++;
+    this.calculateButtonsAvailable();*/
   }
 
   calculateButtonsAvailable(): void {
     //left
-    this.prevFilmAvailable = this.films && this.films.length > 0 && this.currentFilmNum > 0; //if(this.films > 0 && this.currentFilmNum > 0)
+    /*this.prevFilmAvailable = this.films && this.films.length > 0 && this.currentFilmNum > 0; //if(this.films > 0 && this.currentFilmNum > 0)*/
 
     //right
-    this.nextFilmAvailable = this.films && this.films.length > 0 && this.currentFilmNum < (this.films.length - 1);
+    /*this.nextFilmAvailable = this.films && this.films.length > 0 && this.currentFilmNum < (this.films.length - 1);*/
   }
 
   selectFilm(filmId: Guid): void {
-    this.router.navigate(['film', filmId]);
-    this.filmSelectedEvent.emit();
+    /*this.router.navigate(['film', filmId]);
+    this.filmSelectedEvent.emit();*/
   }
 }

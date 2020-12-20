@@ -1,44 +1,30 @@
 <div class="page-wrapper">
-  <div class="page-content" id="main-page">
+  <div id="loader" *ngIf="isLoading">
+    <mat-spinner></mat-spinner>
+  </div>
+
+  <div class="page-content" *ngIf="!isLoading" id="main-page">
     <header>Здесь вы можете подобрать фильм для себя несколькими способами</header>
-    <div class="film-select-variant">
+    <div class="film-selection">
       <label>
         Способ №1: Вам выдается совершенно случайный фильм из базы данных.
       </label>
-      <modal-window #randomFilmModal
-                    [options]="randFilmModalOptions"
-                    [tempRef]="randomFilmPreview">
-        <button mat-stroked-button (click)="selectRandomFilm()">Получить</button>
-      </modal-window>
+      <carousel [cellsToShow]="3" [height]="200" [cellWidth]="200">
+        <div class="carousel-cell" *ngFor="let film of randomFilms">
+          <img [src]="film.preview">
+        </div>
+      </carousel>
     </div>
     <mat-divider></mat-divider>
-    <div class="film-select-variant">
+    <div class="film-selection">
       <label>
         Способ №2: Вам выдается фильм в соответствие с вашими предпочтениями. Необходимо
         зарегестрироваться/войти
         для данного способа.
       </label>
-      <modal-window #specFilmModal
-                    [options]="specFilmModalOptions"
-                    [tempRef]="specFilmPreview">
-        <div matTooltip="Необходимо авторизироваться"
-             [matTooltipDisabled]="loggedIn">
-          <button
-            mat-stroked-button
-            (click)="selectSpecFilm()"
-            [disabled]="!loggedIn"
-          >
-            Получить
-          </button>
-        </div>
-      </modal-window>
+      <carousel *ngIf="sameUsersFilms">
+        <img *ngFor="let film of sameUsersFilms" [src]="film.preview">
+      </carousel>
     </div>
   </div>
 </div>
-
-<ng-template #randomFilmPreview>
-  <films-select-preview [isRandomFilm]="true" (filmSelectedEvent)="randomFilmModal.dialog.closeAll()"></films-select-preview>
-</ng-template>
-<ng-template #specFilmPreview>
-  <films-select-preview [isSpecifityFilm]="true" (filmSelectedEvent)="specFilmModal.dialog.closeAll()"></films-select-preview>
-</ng-template>

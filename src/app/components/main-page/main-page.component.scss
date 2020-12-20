@@ -10,14 +10,22 @@
       align-self: center;
     }
 
-    .film-select-variant{
+    .film-selection {
       display: flex;
-      justify-content: space-between;
+      flex-direction: column;
       margin: 10px;
 
       label{
         font-size: 24px;
         margin: 5px;
+      }
+
+      carousel {
+        width: 100%;
+
+        .carousel-cells {
+          width: 200px !important;
+        }
       }
     }
   }
