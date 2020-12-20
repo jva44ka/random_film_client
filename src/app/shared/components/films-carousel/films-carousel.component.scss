@@ -1,0 +1,32 @@
+:host {
+  //height: 200px;
+  height: 210px;
+  position: relative;
+
+  drag-scroll {
+
+    height: 210px;
+    width: 100%;
+    cursor: pointer;
+
+    img {
+      //width: 300px;
+      height: 200px;
+      margin: 5px;
+      border-radius: 5px;
+    }
+  }
+
+  .move-left-btn, .move-right-btn {
+    position: absolute;
+    top: 45%
+  }
+
+  .move-left-btn {
+    left: 10px;
+  }
+
+  .move-right-btn {
+    right: 10px;
+  }
+}

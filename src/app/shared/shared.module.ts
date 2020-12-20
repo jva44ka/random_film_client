@@ -13,6 +13,8 @@ import { ModalWindowButtonsComponent } from './components/modal-window/modal-win
 import { FilmsSelectPreviewComponent } from './components/films-select-preview/films-select-preview.component';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {RouterModule} from '@angular/router';
+import { FilmsCarouselComponent } from './components/films-carousel/films-carousel.component';
+import { DragScrollModule } from 'ngx-drag-scroll';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,8 @@ import {RouterModule} from '@angular/router';
     ModalWindowComponent,
     ModalWindowDialogComponent,
     ModalWindowButtonsComponent,
-    FilmsSelectPreviewComponent
+    FilmsSelectPreviewComponent,
+    FilmsCarouselComponent
   ],
   imports: [
     CommonModule,
@@ -29,7 +32,8 @@ import {RouterModule} from '@angular/router';
     MatButtonModule,
     MatIconModule,
     MatDialogModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    DragScrollModule
   ],
   providers: [
     {
@@ -42,7 +46,8 @@ import {RouterModule} from '@angular/router';
     YearPipe,
     FilmLikesPanelComponent,
     ModalWindowComponent,
-    FilmsSelectPreviewComponent
+    FilmsSelectPreviewComponent,
+    FilmsCarouselComponent
   ]
 })
 export class SharedModule { }

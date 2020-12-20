@@ -1,0 +1,21 @@
+<drag-scroll #carousel [scrollbar-hidden]="true">
+  <img drag-scroll-item *ngFor="let film of films" [src]="film.preview" (click)="click(film)">
+</drag-scroll>
+
+<button class="circle-btn move-left-btn">
+        <!--[disabled]="nextFilmAvailable ? null : true"
+        (click)="nextFilm()">-->
+  <img src="assets/arrow.svg"
+       width="25px"
+       height="25px"
+       class="arrow-left">
+</button>
+<button class="circle-btn move-right-btn"
+        id="next-film">
+        <!--[disabled]="nextFilmAvailable ? null : true"
+        (click)="nextFilm()">-->
+  <img src="assets/arrow.svg"
+       width="25px"
+       height="25px"
+       class="arrow-right">
+</button>
