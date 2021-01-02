@@ -7,18 +7,21 @@
     <header>Здесь вы можете подобрать фильм для себя несколькими способами</header>
     <div class="film-selection">
       <label>
-        Способ №1: Вам выдается совершенно случайный фильм из базы данных.
+        Рандомные фильмы
       </label>
       <films-carousel [films]="randomFilms"></films-carousel>
     </div>
-    <mat-divider></mat-divider>
-    <div class="film-selection">
+    <div class="film-selection" *ngIf="sameUsersFilms">
       <label>
-        Способ №2: Вам выдается фильм в соответствие с вашими предпочтениями. Необходимо
-        зарегестрироваться/войти
-        для данного способа.
+        Индивидуальная подборка
       </label>
-      <films-carousel *ngIf="sameUsersFilms" [films]="sameUsersFilms"></films-carousel>
+      <films-carousel [films]="sameUsersFilms"></films-carousel>
+    </div>
+    <div class="film-selection" *ngIf="popularFilms">
+      <label>
+        Популярное
+      </label>
+      <films-carousel [films]="popularFilms"></films-carousel>
     </div>
   </div>
 </div>

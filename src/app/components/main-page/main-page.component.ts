@@ -22,6 +22,7 @@ export class MainPageComponent implements OnInit, AfterViewInit, OnDestroy {
 
   public randomFilms: Film[];
   public sameUsersFilms: Film[];
+  public popularFilms: Film[];
 
   constructor(private authService: AuthService,
               private themeService: ThemeService,
@@ -42,6 +43,7 @@ export class MainPageComponent implements OnInit, AfterViewInit, OnDestroy {
       this.filmsStore.isLoading$.subscribe((res: boolean) => {
         this.randomFilms = this.filmsStore.randomFilms;
         this.sameUsersFilms = this.filmsStore.sameUserFilms;
+        this.popularFilms = this.filmsStore.popularFilms;
         this.isLoading = res;
 
         console.log(this.randomFilms);
