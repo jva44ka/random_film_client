@@ -5,71 +5,66 @@ import {AuthService} from '../../services/auth.service';
 import {Subscription} from 'rxjs';
 import {FilmHttpService} from '../../services/api/http/film-http.service';
 import {ThemeService} from '../../services/theme.service';
+import {FilmsStoreService} from '../../services/stores/films-store.service';
+import Film from '../../models/film';
+import {DragScrollComponent} from 'ngx-drag-scroll';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'main-page',
   templateUrl: './main-page.component.html',
   styleUrls: ['./main-page.component.scss']
 })
-export class MainPageComponent implements OnInit, AfterViewInit, OnDestroy {
+export class MainPageComponent implements OnInit, OnDestroy {
+  private subscriptions: Subscription[] = [];
 
-  filmModalsOptions: IModalWindowOptions = {
-    width: "70%",
-    height: "80%",
-    title: "Выбор фильма",
-    containsForm: true,
-    isConfirmation: true,
-    disableClose: false,
-    crossMark: true,
-  };
+  public loggedIn: boolean = false;
+  public isLoading: boolean = false;
 
-  specFilmModalOptions: IModalWindowOptions = {
-    ...this.filmModalsOptions,
-    title: "Подбор по предпочтениям"
-  };
-
-  randFilmModalOptions: IModalWindowOptions = {
-    ...this.filmModalsOptions,
-    title: "Рандомный подбор"
-  };
-
-  loggedIn: boolean = false;
-  loginEventSub: Subscription;
-
-  @ViewChild('randomFilmModal')
-  randomFilmModal: ModalWindowComponent;
-
-  @ViewChild('specFilmModal')
-  specFilmModal: ModalWindowComponent;
+  public randomFilms: Film[];
+  public sameUsersFilms: Film[];
+  public popularFilms: Film[];
 
   constructor(private authService: AuthService,
-              public filmHttpService: FilmHttpService,
-              private themeService: ThemeService) { }
+              private themeService: ThemeService,
+              private filmsStore: FilmsStoreService,
+              private router: Router) { }
 
   ngOnInit(): void {
     this.loggedIn = !!this.authService.getUserId();
 
-    console.log(this);
     // Если в будущем будет логин в модалке на фоне MainPage,
     // то подписка будет актуальна. Сейчас это просто задел на будущее
-    this.loginEventSub = this.authService.loginEvent$.subscribe(res => {
-      this.loggedIn = res?.loggedIn || false;
-    })
-  }
+    this.subscriptions.push(
+      this.authService.loginEvent$.subscribe(res => {
+        this.loggedIn = res?.loggedIn || false;
+      })
+    );
 
-  ngAfterViewInit(): void {
+    this.subscriptions.push(
+      this.filmsStore.isLoading$.subscribe((res: boolean) => {
+        this.randomFilms = this.filmsStore.randomFilms;
+        this.sameUsersFilms = this.filmsStore.sameUserFilms;
+        this.popularFilms = this.filmsStore.popularFilms;
+        this.isLoading = res;
 
+        console.log(this.randomFilms);
+        console.log(this.sameUsersFilms);
+      })
+    );
+
+    this.randomFilms = this.filmsStore.randomFilms;
+    this.sameUsersFilms = this.filmsStore.sameUserFilms;
+    this.popularFilms = this.filmsStore.popularFilms;
   }
 
   ngOnDestroy(): void {
-    this.loginEventSub.unsubscribe();
+    for(let sub of this.subscriptions) {
+      sub?.unsubscribe();
+    }
   }
 
-  selectRandomFilm(): void {
-    this.randomFilmModal?.openDialog();
-  }
-
-  selectSpecFilm(): void {
-    this.specFilmModal?.openDialog();
+  filmCardClick(film: Film): void {
+    this.router.navigate(['film', film.id]);
   }
 }
