@@ -8,13 +8,14 @@ import {ThemeService} from '../../services/theme.service';
 import {FilmsStoreService} from '../../services/stores/films-store.service';
 import Film from '../../models/film';
 import {DragScrollComponent} from 'ngx-drag-scroll';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'main-page',
   templateUrl: './main-page.component.html',
   styleUrls: ['./main-page.component.scss']
 })
-export class MainPageComponent implements OnInit, AfterViewInit, OnDestroy {
+export class MainPageComponent implements OnInit, OnDestroy {
   private subscriptions: Subscription[] = [];
 
   public loggedIn: boolean = false;
@@ -26,7 +27,8 @@ export class MainPageComponent implements OnInit, AfterViewInit, OnDestroy {
 
   constructor(private authService: AuthService,
               private themeService: ThemeService,
-              private filmsStore: FilmsStoreService) { }
+              private filmsStore: FilmsStoreService,
+              private router: Router) { }
 
   ngOnInit(): void {
     this.loggedIn = !!this.authService.getUserId();
@@ -53,10 +55,7 @@ export class MainPageComponent implements OnInit, AfterViewInit, OnDestroy {
 
     this.randomFilms = this.filmsStore.randomFilms;
     this.sameUsersFilms = this.filmsStore.sameUserFilms;
-  }
-
-  ngAfterViewInit(): void {
-
+    this.popularFilms = this.filmsStore.popularFilms;
   }
 
   ngOnDestroy(): void {
@@ -65,7 +64,7 @@ export class MainPageComponent implements OnInit, AfterViewInit, OnDestroy {
     }
   }
 
-  filmCardClick(filmName: string): void {
-    console.log(filmName);
+  filmCardClick(film: Film): void {
+    this.router.navigate(['film', film.id]);
   }
 }

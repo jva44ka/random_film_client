@@ -7,7 +7,7 @@ import {DragScrollComponent} from 'ngx-drag-scroll';
   templateUrl: './films-carousel.component.html',
   styleUrls: ['./films-carousel.component.scss']
 })
-export class FilmsCarouselComponent implements OnInit {
+export class FilmsCarouselComponent {
 
   @Input() films: Film[];
 
@@ -17,12 +17,6 @@ export class FilmsCarouselComponent implements OnInit {
   @Output() filmClicked: EventEmitter<Film> = new EventEmitter<Film>();
 
   @ViewChild('carousel', {read: DragScrollComponent}) carousel: DragScrollComponent;
-
-  constructor() { }
-
-  ngOnInit(): void {
-
-  }
 
   moveLeft() {
     this.carousel.moveLeft();

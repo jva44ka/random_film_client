@@ -3,7 +3,10 @@
              [drag-scroll-y-disabled]="true"
              (dragEnd)="drugEnd()"
              (dragStart)="drugStart()">
-  <img drag-scroll-item *ngFor="let film of films" [src]="film.preview" (click)="click(film)">
+  <img drag-scroll-item
+       *ngFor="let film of films"
+       [src]="film.preview"
+       (click)="click(film)">
 </drag-scroll>
 
 <button class="circle-btn move-left-btn"

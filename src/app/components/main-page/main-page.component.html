@@ -4,24 +4,23 @@
   </div>
 
   <div class="page-content" *ngIf="!isLoading" id="main-page">
-    <header>Здесь вы можете подобрать фильм для себя несколькими способами</header>
     <div class="film-selection">
       <label>
         Рандомные фильмы
       </label>
-      <films-carousel [films]="randomFilms"></films-carousel>
+      <films-carousel [films]="randomFilms" (filmClicked)="filmCardClick($event)"></films-carousel>
     </div>
     <div class="film-selection" *ngIf="sameUsersFilms">
       <label>
         Индивидуальная подборка
       </label>
-      <films-carousel [films]="sameUsersFilms"></films-carousel>
+      <films-carousel [films]="sameUsersFilms" (filmClicked)="filmCardClick($event)"></films-carousel>
     </div>
     <div class="film-selection" *ngIf="popularFilms">
       <label>
         Популярное
       </label>
-      <films-carousel [films]="popularFilms"></films-carousel>
+      <films-carousel [films]="popularFilms" (filmClicked)="filmCardClick($event)"></films-carousel>
     </div>
   </div>
 </div>

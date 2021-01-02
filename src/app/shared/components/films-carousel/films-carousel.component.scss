@@ -3,16 +3,21 @@
   position: relative;
 
   drag-scroll {
-
     height: 210px;
     width: 100%;
     cursor: pointer;
 
     img {
-      //width: 300px;
       height: 200px;
       margin: 5px;
       border-radius: 5px;
+
+      transition: opacity 0.2s;
+    }
+
+    img:hover {
+      opacity: 0.8;
+      transition: opacity 0.2s;
     }
   }
 

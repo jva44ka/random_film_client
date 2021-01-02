@@ -14,6 +14,7 @@ import {LoginResult} from '../../models/result-models/login-result';
 export class FilmsStoreService extends FilmHttpService {
   public randomFilms: Film[];
   public sameUserFilms: Film[];
+  public knnFilms: Film[];
   public popularFilms: Film[];
 
   public isLoading$: Subject<boolean> = new Subject<boolean>();
@@ -35,6 +36,7 @@ export class FilmsStoreService extends FilmHttpService {
       this.randomFilms = res.randomFilms;
       this.sameUserFilms = res.sameUserFilms;
       this.popularFilms = res.popularFilms;
+      this.knnFilms = res.knnFilms;
       console.log(res);
       this.isLoading$.next(false);
     });
