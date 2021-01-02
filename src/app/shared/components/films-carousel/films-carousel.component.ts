@@ -11,12 +11,12 @@ export class FilmsCarouselComponent implements OnInit {
 
   @Input() films: Film[];
 
-  moveLeftEnabled: boolean = false;
-  moveRightEnabled: boolean = false;
+  moveLeftDisabled: boolean = true;
+  moveRightDisabled: boolean = true;
 
   @Output() filmClicked: EventEmitter<Film> = new EventEmitter<Film>();
 
-  @ViewChild('carousel', {read: DragScrollComponent}) ds: DragScrollComponent;
+  @ViewChild('carousel', {read: DragScrollComponent}) carousel: DragScrollComponent;
 
   constructor() { }
 
@@ -25,14 +25,22 @@ export class FilmsCarouselComponent implements OnInit {
   }
 
   moveLeft() {
-    this.ds.moveLeft();
+    this.carousel.moveLeft();
   }
 
   moveRight() {
-    this.ds.moveRight();
+    this.carousel.moveRight();
   }
 
   click(film: Film): void {
     this.filmClicked.emit(film);
+  }
+
+  drugStart(): void {
+    //console.log('Drug start');
+  }
+
+  drugEnd(): void {
+    //console.log('Drug end');
   }
 }
