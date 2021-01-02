@@ -3,21 +3,15 @@
     display: flex;
     flex-direction: column;
 
-    header {
-      font-size: 28px;
-      margin-top: 10px;
-      margin-bottom: 15px;
-      align-self: center;
-    }
-
-    .film-select-variant{
+    .film-selection {
       display: flex;
-      justify-content: space-between;
+      flex-direction: column;
       margin: 10px;
 
-      label{
-        font-size: 24px;
-        margin: 5px;
+      > label {
+        font-size: 18px;
+        margin-left: 5px;
+        font-family: cursive;
       }
     }
   }

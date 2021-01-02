@@ -136,3 +136,12 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .arrow-left {
   transform: rotate(180deg);
 }
+
+#loader{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 100%;
+  height: 100%;
+}
