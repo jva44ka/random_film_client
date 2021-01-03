@@ -41,22 +41,27 @@ export class MainPageComponent implements OnInit, OnDestroy {
       })
     );
 
-    this.subscriptions.push(
-      this.filmsStore.isLoading$.subscribe((res: boolean) => {
-        this.randomFilms = this.filmsStore.randomFilms;
-        this.sameUsersFilms = this.filmsStore.sameUserFilms;
-        this.popularFilms = this.filmsStore.popularFilms;
-        this.isLoading = res;
+    if (this.filmsStore.loaded) {
+      this.randomFilms = this.filmsStore.randomFilms;
+      this.sameUsersFilms = this.filmsStore.sameUserFilms;
+      this.popularFilms = this.filmsStore.popularFilms;
+    }
 
-        console.log(this.randomFilms);
-        console.log(this.sameUsersFilms);
-        console.log(this.popularFilms);
-      })
-    );
+    else {
+      this.isLoading = true;
+      this.subscriptions.push(
+        this.filmsStore.isLoading$.subscribe((res: boolean) => {
+          this.randomFilms = this.filmsStore.randomFilms;
+          this.sameUsersFilms = this.filmsStore.sameUserFilms;
+          this.popularFilms = this.filmsStore.popularFilms;
+          this.isLoading = res;
 
-    this.randomFilms = this.filmsStore.randomFilms;
-    this.sameUsersFilms = this.filmsStore.sameUserFilms;
-    this.popularFilms = this.filmsStore.popularFilms;
+          console.log(this.randomFilms);
+          console.log(this.sameUsersFilms);
+          console.log(this.popularFilms);
+        })
+      );
+    }
   }
 
   ngOnDestroy(): void {

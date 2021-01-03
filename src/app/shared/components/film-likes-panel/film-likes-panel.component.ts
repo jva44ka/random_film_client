@@ -54,7 +54,7 @@ export class FilmLikesPanelComponent implements OnInit, OnDestroy {
         this.userFilmHttpService.likeOrDislike(req).subscribe(res => {
           this.film.isLiked = null;
           this.buttonsBlocked = false;
-          this.filmsStoreService.liked$.next();
+          this.filmsStoreService.clearSelections();
         });
         break;
       }
@@ -63,7 +63,7 @@ export class FilmLikesPanelComponent implements OnInit, OnDestroy {
         this.userFilmHttpService.likeOrDislike(req).subscribe(res => {
           this.film.isLiked = true;
           this.buttonsBlocked = false;
-          this.filmsStoreService.liked$.next();
+          this.filmsStoreService.clearSelections();
         });
         break;
       }
@@ -72,7 +72,7 @@ export class FilmLikesPanelComponent implements OnInit, OnDestroy {
         this.userFilmHttpService.likeOrDislike(req).subscribe(res => {
           this.film.isLiked = true;
           this.buttonsBlocked = false;
-          this.filmsStoreService.liked$.next();
+          this.filmsStoreService.clearSelections();
         });
         break;
       }
@@ -92,7 +92,7 @@ export class FilmLikesPanelComponent implements OnInit, OnDestroy {
         this.userFilmHttpService.likeOrDislike(req).subscribe(res => {
           this.film.isLiked = false;
           this.buttonsBlocked = false;
-          this.filmsStoreService.liked$.next();
+          this.filmsStoreService.clearSelections();
         });
         break;
       }
@@ -101,7 +101,7 @@ export class FilmLikesPanelComponent implements OnInit, OnDestroy {
         this.userFilmHttpService.likeOrDislike(req).subscribe(res => {
           this.film.isLiked = null;
           this.buttonsBlocked = false;
-          this.filmsStoreService.liked$.next();
+          this.filmsStoreService.clearSelections();
         });
         break;
       }
@@ -111,7 +111,7 @@ export class FilmLikesPanelComponent implements OnInit, OnDestroy {
         res => {
           this.film.isLiked = false;
           this.buttonsBlocked = false;
-          this.filmsStoreService.liked$.next();
+          this.filmsStoreService.clearSelections();
         });
         break;
       }

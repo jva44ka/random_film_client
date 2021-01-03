@@ -18,7 +18,11 @@ export class FilmsStoreService extends FilmHttpService {
   public popularFilms: Film[];
 
   public isLoading$: Subject<boolean> = new Subject<boolean>();
-  public liked$: Subject<void> = new Subject<void>();
+
+  private _loaded: boolean = false;
+  public get loaded(): boolean {
+    return this._loaded;
+  }
 
   constructor(httpClient: HttpClient,
               configuration: ConfigurationService,
@@ -32,12 +36,9 @@ export class FilmsStoreService extends FilmHttpService {
         }
       }
     );
-    this.liked$.subscribe(() => {
-      this.requestSelections();
-    });
   }
 
-  private requestSelections(): void {
+  public requestSelections(): void {
     this.isLoading$.next(true);
     super.getSelections().subscribe((res: GetSelectionsResult) => {
       this.randomFilms = res.randomFilms;
@@ -46,7 +47,16 @@ export class FilmsStoreService extends FilmHttpService {
       this.knnFilms = res.knnFilms;
 
       console.log(res);
+      this._loaded = true;
       this.isLoading$.next(false);
     });
+  }
+
+  public clearSelections(): void {
+    this.randomFilms = [];
+    this.sameUserFilms = [];
+    this.popularFilms = [];
+    this.knnFilms = [];
+    this._loaded = false;
   }
 }
