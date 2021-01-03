@@ -3,6 +3,7 @@ import {AuthService} from '../../../services/auth.service';
 import {Subscription} from 'rxjs';
 import {LikeOrDislikeRequest} from '../../../models/request-models/like-or-dislike-request';
 import {UserFilmHttpService} from '../../../services/api/http/user-film-http.service';
+import {FilmsStoreService} from '../../../services/stores/films-store.service';
 
 @Component({
   selector: 'film-likes-panel',
@@ -12,7 +13,7 @@ import {UserFilmHttpService} from '../../../services/api/http/user-film-http.ser
 export class FilmLikesPanelComponent implements OnInit, OnDestroy {
 
   loggedIn: boolean;
-  loginResultSub: Subscription;
+  subscriptions: Subscription[] = [];
 
   likeBlocked: boolean = false;
   dislikeBlocked: boolean = false;
@@ -25,16 +26,19 @@ export class FilmLikesPanelComponent implements OnInit, OnDestroy {
   @Input() film;
 
   constructor(public authService: AuthService,
+              private filmsStoreService: FilmsStoreService,
               public userFilmHttpService: UserFilmHttpService) { }
 
   ngOnInit(): void {
     this.loggedIn = !!this.authService.getAccessToken();
-    this.loginResultSub = this.authService.loginEvent$.subscribe(res => {
-      if(res)
-        this.loggedIn = res.loggedIn;
-      else
-        this.loggedIn = false;
-    });
+    this.subscriptions.push(
+      this.authService.loginEvent$.subscribe(res => {
+        if(res)
+          this.loggedIn = res.loggedIn;
+        else
+          this.loggedIn = false;
+      })
+    );
   }
 
   like(): void {
@@ -50,6 +54,7 @@ export class FilmLikesPanelComponent implements OnInit, OnDestroy {
         this.userFilmHttpService.likeOrDislike(req).subscribe(res => {
           this.film.isLiked = null;
           this.buttonsBlocked = false;
+          this.filmsStoreService.liked$.next();
         });
         break;
       }
@@ -58,6 +63,7 @@ export class FilmLikesPanelComponent implements OnInit, OnDestroy {
         this.userFilmHttpService.likeOrDislike(req).subscribe(res => {
           this.film.isLiked = true;
           this.buttonsBlocked = false;
+          this.filmsStoreService.liked$.next();
         });
         break;
       }
@@ -66,6 +72,7 @@ export class FilmLikesPanelComponent implements OnInit, OnDestroy {
         this.userFilmHttpService.likeOrDislike(req).subscribe(res => {
           this.film.isLiked = true;
           this.buttonsBlocked = false;
+          this.filmsStoreService.liked$.next();
         });
         break;
       }
@@ -85,6 +92,7 @@ export class FilmLikesPanelComponent implements OnInit, OnDestroy {
         this.userFilmHttpService.likeOrDislike(req).subscribe(res => {
           this.film.isLiked = false;
           this.buttonsBlocked = false;
+          this.filmsStoreService.liked$.next();
         });
         break;
       }
@@ -93,6 +101,7 @@ export class FilmLikesPanelComponent implements OnInit, OnDestroy {
         this.userFilmHttpService.likeOrDislike(req).subscribe(res => {
           this.film.isLiked = null;
           this.buttonsBlocked = false;
+          this.filmsStoreService.liked$.next();
         });
         break;
       }
@@ -102,6 +111,7 @@ export class FilmLikesPanelComponent implements OnInit, OnDestroy {
         res => {
           this.film.isLiked = false;
           this.buttonsBlocked = false;
+          this.filmsStoreService.liked$.next();
         });
         break;
       }
@@ -109,7 +119,8 @@ export class FilmLikesPanelComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    this.loginResultSub.unsubscribe();
+    for (let sub of this.subscriptions) {
+      sub?.unsubscribe();
+    }
   }
-
 }

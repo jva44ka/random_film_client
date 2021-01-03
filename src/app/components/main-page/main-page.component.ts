@@ -50,6 +50,7 @@ export class MainPageComponent implements OnInit, OnDestroy {
 
         console.log(this.randomFilms);
         console.log(this.sameUsersFilms);
+        console.log(this.popularFilms);
       })
     );
 
