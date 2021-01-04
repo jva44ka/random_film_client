@@ -30,11 +30,8 @@ export class FilmsStoreService extends FilmHttpService {
     super(httpClient, configuration);
 
     this.requestSelections();
-    this.authService.loginEvent$.subscribe((res: LoginResult) => {
-        if (res.loggedIn) {
-          this.requestSelections();
-        }
-      }
+    this.authService.loginEvent$.subscribe((res: LoginResult) =>
+      this.requestSelections()
     );
   }
 

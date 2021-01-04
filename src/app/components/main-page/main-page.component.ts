@@ -41,6 +41,19 @@ export class MainPageComponent implements OnInit, OnDestroy {
       })
     );
 
+    this.subscriptions.push(
+      this.filmsStore.isLoading$.subscribe((res: boolean) => {
+        this.randomFilms = this.filmsStore.randomFilms;
+        this.sameUsersFilms = this.filmsStore.sameUserFilms;
+        this.popularFilms = this.filmsStore.popularFilms;
+        this.isLoading = res;
+
+        console.log(this.randomFilms);
+        console.log(this.sameUsersFilms);
+        console.log(this.popularFilms);
+      })
+    );
+
     if (this.filmsStore.loaded) {
       this.randomFilms = this.filmsStore.randomFilms;
       this.sameUsersFilms = this.filmsStore.sameUserFilms;
@@ -49,18 +62,7 @@ export class MainPageComponent implements OnInit, OnDestroy {
 
     else {
       this.isLoading = true;
-      this.subscriptions.push(
-        this.filmsStore.isLoading$.subscribe((res: boolean) => {
-          this.randomFilms = this.filmsStore.randomFilms;
-          this.sameUsersFilms = this.filmsStore.sameUserFilms;
-          this.popularFilms = this.filmsStore.popularFilms;
-          this.isLoading = res;
-
-          console.log(this.randomFilms);
-          console.log(this.sameUsersFilms);
-          console.log(this.popularFilms);
-        })
-      );
+      this.filmsStore.requestSelections();
     }
   }
 
