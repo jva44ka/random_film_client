@@ -1,0 +1,87 @@
+$header-size-1: 36px;
+$header-size-2: 28px;
+$header-size-3: 24px;
+
+:host {
+  .page-content {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.row {
+  width: 100%;
+  max-width: 100%;
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 20px;
+
+  .left-column, .right-column {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .left-column {
+    width: 30%;
+    min-width: 270px;
+  }
+
+  .right-column {
+    width: 70%;
+  }
+}
+
+.row#main-section {
+  margin: 15px 0;
+  border-radius: 5px;
+}
+
+.row#data-section {
+
+  .left-column {
+
+    > * {
+      height: 30px;
+      margin: 5px 0;
+    }
+
+    label {
+      font-size: $header-size-3;
+    }
+  }
+
+  .right-column {
+
+    > * {
+      height: 24px;
+      margin: 5px 0;
+    }
+  }
+}
+
+#profile-avatar {
+  background-size: cover;
+  background-position: center;
+  border-radius: 50%;
+  width: 250px;
+  height: 250px;
+  margin: 10px;
+}
+
+label#username, label#email {
+  font-family: cursive;
+  margin: 20px 0;
+}
+
+label#username {
+  font-size: $header-size-1;
+}
+
+label#email {
+  font-size: $header-size-3;
+}
+
+label#account-section-label {
+  font-size: $header-size-3;
+  margin-bottom: 20px;
+}

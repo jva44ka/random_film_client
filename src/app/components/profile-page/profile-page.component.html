@@ -3,8 +3,34 @@
     <mat-spinner></mat-spinner>
   </div>
 
-  <div class="page-content" *ngIf="!isLoading">
-    <label>{{account.userName}}</label>
+  <div class="page-content" *ngIf="!isLoading" id="profile-page">
+    <div class="row" id="main-section">
+      <div class="left-column">
+        <div id="profile-avatar"
+             [style.background-image]="avatarUrl"></div>
+      </div>
+      <div class="right-column">
+        <label id="username">{{account.userName}}</label>
+        <label id="email">{{account.email}}</label>
+      </div>
+    </div>
+    <label id="account-section-label">Аккаунт</label>
+    <div class="row" id="data-section">
+      <div class="left-column">
+        <label>Имя</label>
+        <label>Фамилия</label>
+        <label>Никнейм</label>
+        <label>Телефон</label>
+        <label>Почта</label>
+      </div>
+      <div class="right-column">
+        <input [value]="account.firstName" disabled/>
+        <input [value]="account.lastName" disabled/>
+        <input [value]="account.userName" disabled/>
+        <input [value]="account.phone" disabled/>
+        <input [value]="account.email" disabled/>
+      </div>
+    </div>
   </div>
 </div>
 
