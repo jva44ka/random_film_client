@@ -1,4 +1,4 @@
-import {Component, OnInit, ViewEncapsulation} from '@angular/core';
+import {Component, OnDestroy, OnInit, ViewEncapsulation} from '@angular/core';
 import {Subscription} from 'rxjs';
 import {AuthService} from '../../services/auth.service';
 import {Router} from '@angular/router';
@@ -11,30 +11,35 @@ import {ThemeService} from '../../services/theme.service';
   styleUrls: ['./login-page.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
-export class LoginPageComponent implements OnInit {
+export class LoginPageComponent implements OnInit, OnDestroy {
 
   usernameOrEmail: string;
   password: string;
 
   errorMessage: string;
   errors: Error[];
-  loginResultSub: Subscription;
+
+  subscriptions: Subscription[] = [];
 
   constructor(private authService: AuthService,
               private router: Router,
               private themeService: ThemeService) { }
 
   ngOnInit(): void {
-    this.loginResultSub = this.authService.loginEvent$.subscribe(loginResult => {
-      if(loginResult?.loggedIn)
-        this.router.navigate(['/']);
-      else
-        this.errorMessage = "Неверный логин и/или пароль";
-    });
+    this.subscriptions.push(
+      this.authService.loginEvent$.subscribe(loginResult => {
+        if(loginResult?.loggedIn)
+          this.router.navigate(['/']);
+        else
+          this.errorMessage = "Неверный логин и/или пароль";
+      })
+    );
   }
 
   ngOnDestroy(): void {
-    this.loginResultSub?.unsubscribe();
+    for (let sub of this.subscriptions) {
+      sub?.unsubscribe();
+    }
   }
 
   onSubmit(): void {

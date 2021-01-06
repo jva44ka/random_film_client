@@ -14,6 +14,7 @@ import {HttpClientModule} from '@angular/common/http';
 import {SharedModule} from './shared/shared.module';
 import {NotFoundPageModule} from './components/not-found-page/not-found-page.module';
 import {RegisterPageModule} from './components/register-page/register-page.module';
+import {ProfilePageModule} from './components/profile-page/profile-page.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -25,6 +26,7 @@ import {RegisterPageModule} from './components/register-page/register-page.modul
     FilmPageModule,
     LoginPageModule,
     RegisterPageModule,
+    ProfilePageModule,
     NotFoundPageModule,
     HeaderModule,
     FooterModule,

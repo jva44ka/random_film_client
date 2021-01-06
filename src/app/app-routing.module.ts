@@ -6,6 +6,8 @@ import {FilmsPageComponent} from './components/films-page/films-page.component';
 import {FilmPageComponent} from './components/film-page/film-page.component';
 import {NotFoundPageComponent} from './components/not-found-page/not-found-page.component';
 import {RegisterPageComponent} from './components/register-page/register-page.component';
+import {ProfilePageComponent} from './components/profile-page/profile-page.component';
+import {LoginGuard} from './shared/guards/login.guard';
 
 
 const routes: Routes = [
@@ -28,6 +30,11 @@ const routes: Routes = [
   {
     path: 'register',
     component: RegisterPageComponent
+  },
+  {
+    path: 'profile',
+    component: ProfilePageComponent,
+    canActivate: [LoginGuard]
   },
   {
     path: '**',
