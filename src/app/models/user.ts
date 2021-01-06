@@ -8,6 +8,7 @@ export default class User {
   public userName: string;
   public phone?: string;
   public email?: string;
+  public avatarUrl?: string;
 
   public lastSeenOn?: Date;
   public createdOn?: Date;

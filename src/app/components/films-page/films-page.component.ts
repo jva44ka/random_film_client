@@ -10,17 +10,24 @@ import {ThemeService} from '../../services/theme.service';
   styleUrls: ['./films-page.component.scss']
 })
 export class FilmsPageComponent implements OnInit {
-
   films: Film[];
+  isLoading: boolean = false;
 
   constructor(private filmHttpService: FilmHttpService,
               private authService: AuthService,
               private themeService: ThemeService) { }
 
   ngOnInit(): void {
-    this.filmHttpService.getAllFilms(this.authService.getUserId()).subscribe(films => {
-      this.films = films;
-    });
+    this.isLoading = true;
+    this.filmHttpService.getAllFilms(this.authService.getUserId()).subscribe(
+      films => {
+        this.films = films;
+        this.isLoading = false;
+      },
+      (err) => {
+        console.error(err);
+        this.isLoading = false;
+      }
+    );
   }
-
 }

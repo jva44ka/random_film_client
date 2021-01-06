@@ -14,6 +14,9 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {RouterModule} from '@angular/router';
 import { FilmsCarouselComponent } from './components/films-carousel/films-carousel.component';
 import { DragScrollModule } from 'ngx-drag-scroll';
+import { FilmsListComponent } from './components/films-list/films-list.component';
+import {FilmListItemComponent} from './components/films-list/film-list-item/film-list-item.component';
+import {MatCardModule} from '@angular/material/card';
 
 @NgModule({
   declarations: [
@@ -22,7 +25,9 @@ import { DragScrollModule } from 'ngx-drag-scroll';
     ModalWindowComponent,
     ModalWindowDialogComponent,
     ModalWindowButtonsComponent,
-    FilmsCarouselComponent
+    FilmsCarouselComponent,
+    FilmsListComponent,
+    FilmListItemComponent
   ],
   imports: [
     CommonModule,
@@ -31,6 +36,7 @@ import { DragScrollModule } from 'ngx-drag-scroll';
     MatIconModule,
     MatDialogModule,
     MatProgressSpinnerModule,
+    MatCardModule,
     DragScrollModule
   ],
   providers: [
@@ -44,7 +50,8 @@ import { DragScrollModule } from 'ngx-drag-scroll';
     YearPipe,
     FilmLikesPanelComponent,
     ModalWindowComponent,
-    FilmsCarouselComponent
+    FilmsCarouselComponent,
+    FilmsListComponent
   ]
 })
 export class SharedModule { }
