@@ -19,26 +19,41 @@ export class FilmsStoreService extends FilmHttpService {
 
   public isLoading$: Subject<boolean> = new Subject<boolean>();
 
+  private _loaded: boolean = false;
+  public get loaded(): boolean {
+    return this._loaded;
+  }
+
   constructor(httpClient: HttpClient,
               configuration: ConfigurationService,
               private authService: AuthService) {
     super(httpClient, configuration);
 
-    this.requestFilms();
+    this.requestSelections();
     this.authService.loginEvent$.subscribe((res: LoginResult) =>
-      this.requestFilms()
+      this.requestSelections()
     );
   }
 
-  requestFilms(): void {
+  public requestSelections(): void {
     this.isLoading$.next(true);
     super.getSelections().subscribe((res: GetSelectionsResult) => {
       this.randomFilms = res.randomFilms;
       this.sameUserFilms = res.sameUserFilms;
       this.popularFilms = res.popularFilms;
       this.knnFilms = res.knnFilms;
+
       console.log(res);
+      this._loaded = true;
       this.isLoading$.next(false);
     });
+  }
+
+  public clearSelections(): void {
+    this.randomFilms = [];
+    this.sameUserFilms = [];
+    this.popularFilms = [];
+    this.knnFilms = [];
+    this._loaded = false;
   }
 }

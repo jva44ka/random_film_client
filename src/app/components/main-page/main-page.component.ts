@@ -50,12 +50,20 @@ export class MainPageComponent implements OnInit, OnDestroy {
 
         console.log(this.randomFilms);
         console.log(this.sameUsersFilms);
+        console.log(this.popularFilms);
       })
     );
 
-    this.randomFilms = this.filmsStore.randomFilms;
-    this.sameUsersFilms = this.filmsStore.sameUserFilms;
-    this.popularFilms = this.filmsStore.popularFilms;
+    if (this.filmsStore.loaded) {
+      this.randomFilms = this.filmsStore.randomFilms;
+      this.sameUsersFilms = this.filmsStore.sameUserFilms;
+      this.popularFilms = this.filmsStore.popularFilms;
+    }
+
+    else {
+      this.isLoading = true;
+      this.filmsStore.requestSelections();
+    }
   }
 
   ngOnDestroy(): void {

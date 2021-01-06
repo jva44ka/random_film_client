@@ -58,9 +58,15 @@ export class AuthService {
   }
 
   logout(): void {
+    // clear localstorage
     localStorage.removeItem(this.nameOfAccessToken);
     localStorage.removeItem(this.nameOfUserName);
     localStorage.removeItem(this.nameOfUserId);
+
+    // clear cache variables
+    this.accessToken = null;
+    this.userName = null;
+    this.userId = null;
     this.loginEvent$.next();
   }
 }
