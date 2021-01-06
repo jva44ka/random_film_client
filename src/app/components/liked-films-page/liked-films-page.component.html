@@ -1,8 +1,5 @@
-<div class="page-wrapper">
-  <div id="loader" *ngIf="isLoading">
-    <mat-spinner></mat-spinner>
-  </div>
-
-  <div class="page-content" *ngIf="!isLoading" id="liked-films-page">
-  </div>
+<div id="loader" *ngIf="isLoading">
+  <mat-spinner></mat-spinner>
 </div>
+
+<films-list [films]="films"></films-list>

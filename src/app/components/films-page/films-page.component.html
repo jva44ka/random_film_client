@@ -1,9 +1,5 @@
-<div class="page-wrapper">
-  <div class="page-content">
-    <div class="film-list-wrapper">
-      <div *ngFor="let film of films" class="film-list-item">
-        <film-list-item [film]="film"></film-list-item>
-      </div>
-    </div>
-  </div>
+<div id="loader" *ngIf="isLoading">
+  <mat-spinner></mat-spinner>
 </div>
+
+<films-list [films]="films"></films-list>
