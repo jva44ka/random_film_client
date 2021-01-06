@@ -43,6 +43,10 @@ export class FilmHttpService extends  BaseHttpService {
     return this.getResource<Film[]>(`${this.nameOfController}/Specificity`);
   }
 
+  getLikedFilms(): Observable<Film[]> {
+    return this.getResource<Film[]>(`${this.nameOfController}/likedFilms`);
+  }
+
   getSelections(): Observable<GetSelectionsResult> {
     return this.getResource<GetSelectionsResult>(`${this.nameOfController}/selections`);
   }

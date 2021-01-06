@@ -1,20 +1,18 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import {FilmsPageComponent} from './films-page.component';
-import {RouterModule} from '@angular/router';
+import {LikedFilmsPageComponent} from './liked-films-page.component';
 import {SharedModule} from '../../shared/shared.module';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 
 
 @NgModule({
-  declarations: [FilmsPageComponent],
+  declarations: [LikedFilmsPageComponent],
   imports: [
     CommonModule,
-    RouterModule,
-    MatProgressSpinnerModule,
-    SharedModule
+    SharedModule,
+    MatProgressSpinnerModule
   ],
-  exports: [FilmsPageComponent]
+  exports: [LikedFilmsPageComponent]
 })
-export class FilmsPageModule { }
+export class LikedFilmsPageModule { }

@@ -15,6 +15,7 @@ import {SharedModule} from './shared/shared.module';
 import {NotFoundPageModule} from './components/not-found-page/not-found-page.module';
 import {RegisterPageModule} from './components/register-page/register-page.module';
 import {ProfilePageModule} from './components/profile-page/profile-page.module';
+import {LikedFilmsPageModule} from './components/liked-films-page/liked-films-page.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -24,6 +25,7 @@ import {ProfilePageModule} from './components/profile-page/profile-page.module';
     MainPageModule,
     FilmsPageModule,
     FilmPageModule,
+    LikedFilmsPageModule,
     LoginPageModule,
     RegisterPageModule,
     ProfilePageModule,

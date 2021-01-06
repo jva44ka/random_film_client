@@ -10,11 +10,19 @@
              [style.background-image]="avatarUrl"></div>
       </div>
       <div class="right-column">
-        <label id="username">{{account.userName}}</label>
-        <label id="email">{{account.email}}</label>
+        <div class="main-data-column">
+          <label id="username">{{account.userName}}</label>
+          <label id="email">{{account.email}}</label>
+        </div>
+        <div class="likes-button-column">
+          <button mat-icon-button matTooltip="Оцененные фильмы" (click)="toLikedFilms()">
+            <mat-icon>thumbs_up_down</mat-icon>
+          </button>
+        </div>
       </div>
     </div>
     <label id="account-section-label">Аккаунт</label>
+    <mat-divider></mat-divider>
     <div class="row" id="data-section">
       <div class="left-column">
         <label>Имя</label>
@@ -33,4 +41,3 @@
     </div>
   </div>
 </div>
-
