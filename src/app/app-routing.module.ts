@@ -8,6 +8,7 @@ import {NotFoundPageComponent} from './components/not-found-page/not-found-page.
 import {RegisterPageComponent} from './components/register-page/register-page.component';
 import {ProfilePageComponent} from './components/profile-page/profile-page.component';
 import {LoginGuard} from './shared/guards/login.guard';
+import {LikedFilmsPageComponent} from './components/liked-films-page/liked-films-page.component';
 
 
 const routes: Routes = [
@@ -34,6 +35,11 @@ const routes: Routes = [
   {
     path: 'profile',
     component: ProfilePageComponent,
+    canActivate: [LoginGuard]
+  },
+  {
+    path: 'likes',
+    component: LikedFilmsPageComponent,
     canActivate: [LoginGuard]
   },
   {

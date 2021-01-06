@@ -56,4 +56,8 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
       sub?.unsubscribe();
     }
   }
+
+  toLikedFilms(): void {
+    this.router.navigate(['likes']);
+  }
 }
