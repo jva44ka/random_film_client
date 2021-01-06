@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import {ProfilePageComponent} from './profile-page.component';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {SharedModule} from '../../shared/shared.module';
+import {MatDividerModule} from '@angular/material/divider';
 
 
 
@@ -11,7 +12,8 @@ import {SharedModule} from '../../shared/shared.module';
   imports: [
     CommonModule,
     MatProgressSpinnerModule,
-    SharedModule
+    SharedModule,
+    MatDividerModule
   ],
   exports: [ProfilePageComponent]
 })
