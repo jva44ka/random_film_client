@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {ProfilePageComponent} from './profile-page.component';
-import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {SharedModule} from '../../shared/shared.module';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatIconModule} from '@angular/material/icon';
@@ -14,7 +13,6 @@ import {MatTooltipModule} from '@angular/material/tooltip';
   declarations: [ProfilePageComponent],
   imports: [
     CommonModule,
-    MatProgressSpinnerModule,
     SharedModule,
     MatDividerModule,
     MatIconModule,

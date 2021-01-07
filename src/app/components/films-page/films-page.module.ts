@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 import {FilmsPageComponent} from './films-page.component';
 import {RouterModule} from '@angular/router';
 import {SharedModule} from '../../shared/shared.module';
-import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 
 
@@ -12,7 +11,6 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
   imports: [
     CommonModule,
     RouterModule,
-    MatProgressSpinnerModule,
     SharedModule
   ],
   exports: [FilmsPageComponent]

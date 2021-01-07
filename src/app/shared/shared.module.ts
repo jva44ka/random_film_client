@@ -47,6 +47,7 @@ import {MatCardModule} from '@angular/material/card';
     }
   ],
   exports: [
+    MatProgressSpinnerModule,
     YearPipe,
     FilmLikesPanelComponent,
     ModalWindowComponent,

@@ -14,6 +14,7 @@ import {AuthService} from '../../services/auth.service';
 export class FilmPageComponent implements OnInit, OnDestroy {
   id: Guid;
   film: Film;
+  isLoading: boolean = false;
   private paramSub: Subscription;
   private filmSub: Subscription;
 

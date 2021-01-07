@@ -5,7 +5,6 @@ import {SharedModule} from '../../shared/shared.module';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatButtonModule} from '@angular/material/button';
 import {MatDividerModule} from '@angular/material/divider';
-import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {DragScrollModule} from 'ngx-drag-scroll';
 
 
@@ -18,7 +17,6 @@ import {DragScrollModule} from 'ngx-drag-scroll';
     MatTooltipModule,
     MatButtonModule,
     MatDividerModule,
-    MatProgressSpinnerModule,
     DragScrollModule
   ],
   exports: [MainPageComponent]
