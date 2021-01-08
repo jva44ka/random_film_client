@@ -4,7 +4,21 @@
   </div>
 
   <div class="page-content" *ngIf="!isLoading">
-    <mat-card *ngIf="film">
+    <video [src]="film.urlTrailer" autoplay></video>
+    <!-- By default there are no controls so let's turn them on. -->
+    <vm-player controls>
+      <vm-video cross-origin="true" poster="https://media.vimejs.com/poster.png">
+        <!-- These are passed directly to the underlying HTML5 `<video>` element. -->
+        <!-- Why `data-src`? Lazy loading, you can always use `src` if you prefer.  -->
+        <source
+          data-src="{{film.urlTrailer}}"
+          type="video/mp4"
+        />
+      </vm-video>
+
+      <!-- ... -->
+    </vm-player>
+    <!--<mat-card *ngIf="film">
       <img mat-card-image [src]="film.preview">
       <mat-card-header>
         <mat-card-title>{{film.title}}</mat-card-title>
@@ -17,6 +31,6 @@
       <mat-card-actions>
         <film-likes-panel [film]="film"></film-likes-panel>
       </mat-card-actions>
-    </mat-card>
+    </mat-card>-->
   </div>
 </div>
